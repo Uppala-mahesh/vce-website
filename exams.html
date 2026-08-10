@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Examinations &amp; Circulars — Vasavi College of Engineering</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+/* Page masthead */
+.exam-hero {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 72px 0 56px;
+  border-bottom: 1px solid var(--ink-wash);
+  position: relative;
+  overflow: hidden;
+}
+.exam-hero::before {
+  content: "";
+  position: absolute;
+  right: -100px; top: -100px;
+  width: 500px; height: 500px;
+  border: 1px solid rgba(199, 122, 68, 0.15);
+  border-radius: 50%;
+}
+.exam-hero::after {
+  content: "";
+  position: absolute;
+  right: 60px; top: 60px;
+  width: 200px; height: 200px;
+  border: 1px solid rgba(199, 122, 68, 0.08);
+  border-radius: 50%;
+}
+.exam-hero .wrap { position: relative; z-index: 1; }
+.exam-hero .crumb {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250,248,244,0.5);
+  margin-bottom: 32px;
+}
+.exam-hero .crumb a { color: rgba(250,248,244,0.5); }
+.exam-hero .crumb .cur { color: var(--copper-warm); }
+.exam-hero .code { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--copper-warm); margin-bottom: 20px; }
+.exam-hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--paper);
+  font-weight: 400;
+  margin-bottom: 24px;
+  max-width: 20ch;
+  font-variation-settings: "opsz" 144;
+}
+.exam-hero h1 .em { font-style: italic; color: var(--copper-warm); font-weight: 300; }
+.exam-hero .lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(250,248,244,0.75);
+  max-width: 62ch;
+  font-weight: 300;
+}
+.exam-hero .subscribe-row {
+  margin-top: 32px;
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+}
+.exam-hero .subscribe-row .sub-note {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250,248,244,0.5);
+}
+
+/* Search + filter bar */
+.exam-tools {
+  background: var(--paper);
+  padding: 32px 0;
+  border-bottom: 1px solid var(--fog);
+  position: sticky;
+  top: 76px;
+  z-index: 20;
+}
+.exam-tools .wrap { display: flex; flex-direction: column; gap: 20px; }
+.search-row { display: flex; gap: 12px; align-items: center; }
+.search-input {
+  flex: 1;
+  display: flex; align-items: center;
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+  padding: 0 16px;
+  background: var(--paper);
+  transition: border-color .2s;
+}
+.search-input:focus-within { border-color: var(--teal); }
+.search-input svg { flex-shrink: 0; margin-right: 12px; color: var(--slate); }
+.search-input input {
+  flex: 1;
+  border: none;
+  padding: 14px 0;
+  font-family: var(--f-body);
+  font-size: 15px;
+  background: transparent;
+  outline: none;
+  color: var(--ink);
+}
+.search-input input::placeholder { color: var(--slate); }
+.search-input .cmd-hint {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  padding: 4px 8px;
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+}
+
+.filter-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.chip-group { display: flex; gap: 4px; flex-wrap: wrap; }
+.chip-group button {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+  color: var(--slate);
+  background: var(--paper);
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: all .2s;
+}
+.chip-group button:hover { border-color: var(--ink); color: var(--ink); }
+.chip-group button.active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.chip-group button .dot { width: 6px; height: 6px; border-radius: 50%; }
+.chip-group button[data-cat="result"] .dot { background: var(--teal); }
+.chip-group button[data-cat="circular"] .dot { background: var(--slate); }
+.chip-group button[data-cat="registration"] .dot { background: var(--copper); }
+.chip-group button[data-cat="timetable"] .dot { background: var(--ink); border: 1px solid var(--copper); }
+.chip-group button[data-cat="revaluation"] .dot { background: var(--green); }
+.chip-group button[data-cat="deadline"] .dot { background: var(--rust); }
+.chip-group button.active[data-cat="result"] .dot { background: var(--paper); }
+
+.select-row { display: flex; gap: 12px; align-items: center; }
+.select-row label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); }
+.select-row select {
+  border: 1px solid var(--fog);
+  padding: 8px 32px 8px 12px;
+  font-family: var(--f-body);
+  font-size: 13px;
+  background: var(--paper);
+  border-radius: var(--r-sm);
+  color: var(--ink);
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%235B6472' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+/* Table */
+.exam-list {
+  padding: 40px 0 80px;
+  background: var(--paper);
+}
+.list-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px;
+}
+.list-header .count {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.list-header .count .n { color: var(--copper); font-weight: 500; }
+.list-header .sort {
+  display: flex; gap: 4px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.list-header .sort button { padding: 4px 8px; border: 1px solid transparent; border-radius: var(--r-sm); background: transparent; color: var(--slate); }
+.list-header .sort button.active { border-color: var(--fog); color: var(--ink); background: var(--paper-warm); }
+
+.notice-list { border-top: 1px solid var(--ink); }
+.notice-row {
+  display: grid;
+  grid-template-columns: 120px 140px 1fr auto;
+  gap: 24px;
+  padding: 20px 8px;
+  border-bottom: 1px solid var(--fog);
+  align-items: center;
+  transition: background .15s;
+  cursor: pointer;
+}
+.notice-row:hover { background: var(--paper-warm); }
+.notice-row .date {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  text-transform: uppercase;
+}
+.notice-row .date .d { color: var(--ink); font-size: 14px; display: block; }
+.notice-row .cat-cell { display: flex; align-items: center; gap: 8px; }
+.notice-row .cat-cell .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.notice-row .cat-cell .cat {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+.notice-row .body .title {
+  font-family: var(--f-body);
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.notice-row .body .meta {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+}
+.notice-row .body .meta .sep { margin: 0 6px; color: var(--fog-2); }
+.notice-row .action {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+  color: var(--teal);
+  transition: all .2s;
+  white-space: nowrap;
+}
+.notice-row:hover .action { border-color: var(--teal); background: var(--teal); color: var(--paper); }
+.notice-row[data-flag="new"]::before {
+  content: "NEW";
+  display: inline-block;
+  padding: 2px 6px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--copper);
+  border: 1px solid var(--copper);
+  border-radius: var(--r-sm);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Category dot colors on rows */
+.notice-row[data-cat="result"] .dot { background: var(--teal); }
+.notice-row[data-cat="circular"] .dot { background: var(--slate); }
+.notice-row[data-cat="registration"] .dot { background: var(--copper); }
+.notice-row[data-cat="timetable"] .dot { background: var(--ink-wash); }
+.notice-row[data-cat="revaluation"] .dot { background: var(--green); }
+.notice-row[data-cat="deadline"] .dot { background: var(--rust); }
+
+.pagination { display: flex; justify-content: center; gap: 4px; margin-top: 40px; }
+.pagination button {
+  padding: 10px 14px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+  color: var(--slate);
+  background: var(--paper);
+  min-width: 40px;
+  transition: all .2s;
+}
+.pagination button.active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.pagination button:hover:not(.active) { border-color: var(--ink); color: var(--ink); }
+
+@media (max-width: 720px) {
+  .notice-row { grid-template-columns: 100px 1fr; gap: 12px; }
+  .notice-row .cat-cell { grid-column: 1 / 3; }
+  .notice-row .action { grid-column: 1 / 3; text-align: center; }
+}
+</style>
+</head>
+<body data-nav="academics">
+
+<div id="site-chrome"></div>
+
+<!-- Exam hero -->
+<section class="exam-hero">
+  <div class="wrap">
+    <div class="crumb">
+      <a href="index.html">Home</a> · <a href="#">Academics</a> · <span class="cur">Examinations &amp; Circulars</span>
+    </div>
+    <div class="code">§ Academic Notice Board · Controller of Examinations · Autonomous Examination Branch</div>
+    <h1>Examinations &amp; <span class="em">Circulars.</span></h1>
+    <p class="lede">One notice board. All examination, registration, and academic-branch circulars — filterable by category, programme, and semester. Replaces three parallel feeds previously maintained across separate pages.</p>
+    <div class="subscribe-row">
+      <a href="#" class="btn btn-primary">Subscribe to updates</a>
+      <span class="sub-note">Email · RSS · Filtered by category</span>
+    </div>
+  </div>
+</section>
+
+<!-- Filter bar -->
+<section class="exam-tools">
+  <div class="wrap">
+    <div class="search-row">
+      <div class="search-input">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M20 20L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <input type="text" id="q" placeholder="Search by keyword, subject code, or date — try "Open Elective" or "22CS301"" />
+        <span class="cmd-hint">⌘K</span>
+      </div>
+    </div>
+    <div class="filter-row">
+      <div class="chip-group" id="catFilter">
+        <button class="active" data-cat="all">All</button>
+        <button data-cat="result"><span class="dot"></span>Results</button>
+        <button data-cat="timetable"><span class="dot"></span>Timetables</button>
+        <button data-cat="circular"><span class="dot"></span>Circulars</button>
+        <button data-cat="registration"><span class="dot"></span>Registration</button>
+        <button data-cat="revaluation"><span class="dot"></span>Revaluation</button>
+        <button data-cat="deadline"><span class="dot"></span>Deadlines</button>
+      </div>
+      <div class="select-row">
+        <label>Programme</label>
+        <select><option>All programmes</option><option>B.E.</option><option>M.E.</option><option>M.Tech.</option><option>MBA</option></select>
+        <select><option>All semesters</option><option>Sem I</option><option>Sem II</option><option>Sem III</option><option>Sem IV</option><option>Sem V</option><option>Sem VI</option><option>Sem VII</option><option>Sem VIII</option></select>
+        <select><option>2025–26</option><option>2024–25</option><option>2023–24</option></select>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- List -->
+<section class="exam-list">
+  <div class="wrap">
+    <div class="list-header">
+      <div class="count">Showing <span class="n" id="visCount">18</span> of 247 notices</div>
+      <div class="sort">
+        <button class="active">Latest</button>
+        <button>By category</button>
+        <button>By programme</button>
+      </div>
+    </div>
+
+    <div class="notice-list" id="noticeList">
+
+      <div class="notice-row" data-cat="registration" data-flag="new">
+        <div class="date"><span class="d">05 AUG</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Registration</span></div>
+        <div class="body">
+          <div class="title">Open Elective Registration — B.E. VII Semester, all seven branches</div>
+          <div class="meta">B.E. · Sem VII <span class="sep">·</span> Deadline: 12 Aug 2026 <span class="sep">·</span> Autonomous Examination Branch</div>
+        </div>
+        <a href="#" class="action">Open Portal →</a>
+      </div>
+
+      <div class="notice-row" data-cat="result" data-flag="new">
+        <div class="date"><span class="d">04 AUG</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Result</span></div>
+        <div class="body">
+          <div class="title">M.E. / M.Tech. IV Semester End Examination — results declared</div>
+          <div class="meta">M.E. / M.Tech. · Sem IV <span class="sep">·</span> Controller of Examinations</div>
+        </div>
+        <a href="#" class="action">View Result →</a>
+      </div>
+
+      <div class="notice-row" data-cat="timetable">
+        <div class="date"><span class="d">03 AUG</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Timetable</span></div>
+        <div class="body">
+          <div class="title">M.E. / M.Tech. II Semester Main Examination — full schedule</div>
+          <div class="meta">M.E. / M.Tech. · Sem II <span class="sep">·</span> Commences 22 Aug 2026</div>
+        </div>
+        <a href="#" class="action">PDF ↓</a>
+      </div>
+
+      <div class="notice-row" data-cat="deadline">
+        <div class="date"><span class="d">31 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Deadline</span></div>
+        <div class="body">
+          <div class="title">Last date for revaluation applications — Autumn 2026 cycle</div>
+          <div class="meta">All programmes <span class="sep">·</span> Fee: ₹1,000/subject <span class="sep">·</span> COE Office</div>
+        </div>
+        <a href="#" class="action">Apply →</a>
+      </div>
+
+      <div class="notice-row" data-cat="circular">
+        <div class="date"><span class="d">28 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Circular</span></div>
+        <div class="body">
+          <div class="title">Attendance requirement notification — R-24 regulation, minimum 75%</div>
+          <div class="meta">B.E. · All semesters <span class="sep">·</span> Academic Branch</div>
+        </div>
+        <a href="#" class="action">PDF ↓</a>
+      </div>
+
+      <div class="notice-row" data-cat="revaluation">
+        <div class="date"><span class="d">25 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Revaluation</span></div>
+        <div class="body">
+          <div class="title">B.E. VI Semester revaluation results — CSE, IT, ECE, EEE branches</div>
+          <div class="meta">B.E. · Sem VI <span class="sep">·</span> Controller of Examinations</div>
+        </div>
+        <a href="#" class="action">View →</a>
+      </div>
+
+      <div class="notice-row" data-cat="circular">
+        <div class="date"><span class="d">22 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Circular</span></div>
+        <div class="body">
+          <div class="title">Academic calendar revision — R-24 regulation, Odd Semester 2026</div>
+          <div class="meta">All programmes <span class="sep">·</span> Academic Council</div>
+        </div>
+        <a href="#" class="action">PDF ↓</a>
+      </div>
+
+      <div class="notice-row" data-cat="result">
+        <div class="date"><span class="d">18 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Result</span></div>
+        <div class="body">
+          <div class="title">B.E. III &amp; V Semester CIE-II results — all departments</div>
+          <div class="meta">B.E. · Sem III, V <span class="sep">·</span> Continuous Internal Evaluation</div>
+        </div>
+        <a href="#" class="action">View →</a>
+      </div>
+
+      <div class="notice-row" data-cat="registration">
+        <div class="date"><span class="d">15 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Admission</span></div>
+        <div class="body">
+          <div class="title">TS EAMCET 2026 counselling — VCE seat matrix published</div>
+          <div class="meta">B.E. Admissions <span class="sep">·</span> Convener Notification</div>
+        </div>
+        <a href="#" class="action">PDF ↓</a>
+      </div>
+
+      <div class="notice-row" data-cat="timetable">
+        <div class="date"><span class="d">12 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Timetable</span></div>
+        <div class="body">
+          <div class="title">B.E. VII &amp; V Semester End Examination — dates announced</div>
+          <div class="meta">B.E. · Sem V, VII <span class="sep">·</span> Nov 15 – Dec 05, 2026</div>
+        </div>
+        <a href="#" class="action">PDF ↓</a>
+      </div>
+
+      <div class="notice-row" data-cat="circular">
+        <div class="date"><span class="d">08 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Circular</span></div>
+        <div class="body">
+          <div class="title">Faculty Development Programme — NPTEL local chapter, upcoming courses</div>
+          <div class="meta">Faculty · All departments <span class="sep">·</span> SWAYAM-NPTEL</div>
+        </div>
+        <a href="#" class="action">Register →</a>
+      </div>
+
+      <div class="notice-row" data-cat="result">
+        <div class="date"><span class="d">02 JUL</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Result</span></div>
+        <div class="body">
+          <div class="title">B.E. VIII Semester End Examination — Class of 2025 final results</div>
+          <div class="meta">B.E. · Sem VIII <span class="sep">·</span> Controller of Examinations · Convocation eligible</div>
+        </div>
+        <a href="#" class="action">View →</a>
+      </div>
+
+      <div class="notice-row" data-cat="deadline">
+        <div class="date"><span class="d">30 JUN</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Deadline</span></div>
+        <div class="body">
+          <div class="title">Semester Fee Payment — Odd Semester 2026, all UG &amp; PG programmes</div>
+          <div class="meta">All programmes <span class="sep">·</span> Late fee applicable after 5 Jul 2026</div>
+        </div>
+        <a href="#" class="action">Pay →</a>
+      </div>
+
+      <div class="notice-row" data-cat="registration">
+        <div class="date"><span class="d">25 JUN</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Registration</span></div>
+        <div class="body">
+          <div class="title">Value-Added Course registration — Autumn 2026 slate</div>
+          <div class="meta">B.E. · Sem III–VII <span class="sep">·</span> 12 courses open, first-come basis</div>
+        </div>
+        <a href="#" class="action">Register →</a>
+      </div>
+
+      <div class="notice-row" data-cat="circular">
+        <div class="date"><span class="d">20 JUN</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Circular</span></div>
+        <div class="body">
+          <div class="title">Anti-Ragging Committee — mandatory affidavit submission, 2026 intake</div>
+          <div class="meta">B.E. · Sem I <span class="sep">·</span> Anti-Ragging Cell</div>
+        </div>
+        <a href="#" class="action">PDF ↓</a>
+      </div>
+
+      <div class="notice-row" data-cat="revaluation">
+        <div class="date"><span class="d">15 JUN</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Revaluation</span></div>
+        <div class="body">
+          <div class="title">M.Tech. II Semester revaluation window — applications open</div>
+          <div class="meta">M.Tech. · Sem II <span class="sep">·</span> Application closes 22 Jun 2026</div>
+        </div>
+        <a href="#" class="action">Apply →</a>
+      </div>
+
+      <div class="notice-row" data-cat="timetable">
+        <div class="date"><span class="d">10 JUN</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Timetable</span></div>
+        <div class="body">
+          <div class="title">B.E. Class schedule — Odd Semester 2026, all departments</div>
+          <div class="meta">B.E. · All semesters <span class="sep">·</span> Effective 15 Jul 2026</div>
+        </div>
+        <a href="#" class="action">PDF ↓</a>
+      </div>
+
+      <div class="notice-row" data-cat="circular">
+        <div class="date"><span class="d">05 JUN</span>2026</div>
+        <div class="cat-cell"><span class="dot"></span><span class="cat">Circular</span></div>
+        <div class="body">
+          <div class="title">Convocation 2026 — Class of 2024 &amp; 2025 registration open</div>
+          <div class="meta">B.E. / M.E. / M.Tech. Graduates <span class="sep">·</span> Event date: 15 Sep 2026</div>
+        </div>
+        <a href="#" class="action">Register →</a>
+      </div>
+
+    </div>
+
+    <div class="pagination">
+      <button>‹ Prev</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>…</button>
+      <button>14</button>
+      <button>Next ›</button>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="site-chrome.js"></script>
+<script>
+/* Category filter */
+document.querySelectorAll('#catFilter button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#catFilter button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const cat = b.dataset.cat;
+    let n = 0;
+    document.querySelectorAll('.notice-row').forEach(row => {
+      const show = cat === 'all' || row.dataset.cat === cat;
+      row.style.display = show ? '' : 'none';
+      if (show) n++;
+    });
+    document.getElementById('visCount').textContent = n;
+  });
+});
+
+/* Search filter */
+document.getElementById('q').addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase();
+  let n = 0;
+  document.querySelectorAll('.notice-row').forEach(row => {
+    const txt = row.textContent.toLowerCase();
+    const show = txt.includes(q);
+    row.style.display = show ? '' : 'none';
+    if (show) n++;
+  });
+  document.getElementById('visCount').textContent = n;
+});
+
+/* Sort toggle (visual) */
+document.querySelectorAll('.list-header .sort button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.list-header .sort button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

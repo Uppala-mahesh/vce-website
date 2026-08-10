@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Campus Life — Vasavi College of Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="page-styles.css">
+<style>
+.flag-event { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin: 32px 0 80px; }
+.flag-event.reverse { grid-template-columns: 1fr 1fr; direction: rtl; }
+.flag-event.reverse > * { direction: ltr; }
+.flag-event .photo { aspect-ratio: 5/4; overflow: hidden; border-radius: var(--r-sm); position: relative; }
+.flag-event .photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .6s var(--ease), transform 1.2s var(--ease); }
+.flag-event:hover .photo img { filter: grayscale(0); transform: scale(1.03); }
+.flag-event .code { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--copper); text-transform: uppercase; margin-bottom: 12px; }
+.flag-event h2 { font-family: var(--f-display); font-size: 56px; line-height: 1; color: var(--ink); letter-spacing: -0.03em; margin-bottom: 16px; font-weight: 400; }
+.flag-event h2 .em { color: var(--copper); font-style: italic; font-weight: 300; }
+.flag-event .kind { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--slate); text-transform: uppercase; margin-bottom: 20px; }
+.flag-event p { font-size: 15px; color: var(--charcoal); line-height: 1.6; margin-bottom: 12px; }
+.flag-event .meta { display: flex; gap: 24px; margin-top: 20px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--slate); text-transform: uppercase; }
+.flag-event .meta .k { color: var(--copper); }
+@media (max-width: 960px) { .flag-event, .flag-event.reverse { grid-template-columns: 1fr; direction: ltr; } .flag-event h2 { font-size: 40px; } }
+
+.club-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+.club-tile { padding: 24px; border: 1px solid var(--fog); border-radius: var(--r-sm); background: var(--paper); transition: all .3s; }
+.club-tile:hover { border-color: var(--copper); transform: translateY(-2px); box-shadow: var(--e2); }
+.club-tile .n { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--copper); text-transform: uppercase; margin-bottom: 8px; }
+.club-tile .title { font-family: var(--f-display); font-size: 20px; color: var(--ink); font-weight: 400; margin-bottom: 8px; line-height: 1.2; }
+.club-tile .desc { font-size: 13px; color: var(--slate); line-height: 1.5; }
+@media (max-width: 720px) { .club-grid { grid-template-columns: 1fr; } }
+
+.gallery-strip { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 8px; margin: 32px 0; }
+.gallery-strip img { width: 100%; height: 280px; object-fit: cover; filter: grayscale(0.3) contrast(1.05); border-radius: var(--r-sm); transition: filter .5s; }
+.gallery-strip img:hover { filter: grayscale(0); }
+@media (max-width: 720px) { .gallery-strip { grid-template-columns: 1fr; } }
+</style></head>
+<body data-nav="campus">
+<div id="site-chrome"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> · <span class="cur">Campus Life</span></div>
+    <div class="code-band"><span>§ Campus Life</span><span class="sep">/</span><span>Events · Clubs · Societies · Athletics</span></div>
+    <h1>Beyond the <span class="em">syllabus.</span></h1>
+    <p class="lede">Three flagship events anchor the calendar. A long tail of societies, cells, and clubs fills the rest. Vasavi's campus life is built around the idea that engineering education is undermined, not enhanced, by an all-work culture.</p>
+  </div>
+</section>
+
+<div class="wrap" style="padding: 80px 0 0;">
+
+  <div style="text-align: center; margin-bottom: 48px;">
+    <div class="section-number">§01 · Flagship Events</div>
+    <h2 style="font-family: var(--f-display); font-size: 44px; color: var(--ink); margin-top: 12px; font-weight: 400;">Three, every year.</h2>
+  </div>
+
+  <div class="flag-event" id="acumen">
+    <div>
+      <div class="code">Est. 1998 · 27th Edition · September 2026</div>
+      <h2>Acumen <span class="em">2026.</span></h2>
+      <div class="kind">Technical Symposium · Three Days</div>
+      <p>The college's flagship technical symposium — paper presentations, hackathons, coding contests, robotics competitions, and departmental technical events across all seven engineering disciplines.</p>
+      <p>Draws over 3,000 participants from engineering colleges across Telangana, Andhra Pradesh, and Karnataka. Corporate sponsors provide prize pools and internship offers to winning teams.</p>
+      <div class="meta"><span><span class="k">Dates</span><br>15–17 Sep 2026</span><span><span class="k">Venue</span><br>All departments</span><span><span class="k">Registration</span><br>Opens 15 Aug 2026</span></div>
+    </div>
+    <div class="photo"><img src="assets/students.jpg" alt="Acumen technical symposium"></div>
+  </div>
+
+  <div class="flag-event reverse" id="euphoria">
+    <div>
+      <div class="code">Est. 1985 · 40th Edition · February 2026</div>
+      <h2>Euphoria <span class="em">2026.</span></h2>
+      <div class="kind">Cultural Fête · Three Days</div>
+      <p>The college's oldest continuously-run event — a three-day cultural festival featuring music, dance, theatre, literary competitions, fine arts, and the traditional-day parade that has become the emotional signature of every graduating batch.</p>
+      <p>Celebrity headliners in past editions have included A.R. Rahman's band, Karsh Kale, and MTV Unplugged sessions. The event operates on a fully student-run committee under a Vice-Principal's oversight.</p>
+      <div class="meta"><span><span class="k">Dates</span><br>28 Feb – 2 Mar 2026</span><span><span class="k">Venue</span><br>Open Air Theatre</span><span><span class="k">Tickets</span><br>Free for VCE · ₹150 external</span></div>
+    </div>
+    <div class="photo"><img src="assets/vce-campus-3.jpg" alt="Euphoria cultural fête"></div>
+  </div>
+
+  <div class="flag-event" id="kriti">
+    <div>
+      <div class="code">Est. 2012 · 14th Edition · March 2026</div>
+      <h2>Kriti <span class="em">2026.</span></h2>
+      <div class="kind">Annual Art Exhibition · One Week</div>
+      <p>A curated exhibition of student work spanning architecture models, photo essays, engineering installations, painting, sculpture, and multimedia. Kriti is the youngest of the three flagships and has quietly become the college's most critically-praised event.</p>
+      <p>Previous editions have featured collaborations with local artists' collectives (Kalakriti, Muse Art Gallery) and been reviewed in <em>The Hindu</em>, <em>Deccan Chronicle</em>, and design publications.</p>
+      <div class="meta"><span><span class="k">Dates</span><br>15 Mar 2026 onward</span><span><span class="k">Venue</span><br>Central Library Gallery</span><span><span class="k">Submissions</span><br>Open to all students</span></div>
+    </div>
+    <div class="photo"><img src="assets/vce-library.jpg" alt="Kriti art exhibition"></div>
+  </div>
+
+  <div class="gallery-strip">
+    <img src="assets/vce-campus-1.jpg" alt="Campus event">
+    <img src="assets/vce-campus-2.jpg" alt="Campus event">
+    <img src="assets/osmania-library.jpg" alt="Campus event">
+  </div>
+</div>
+
+<div class="wrap" style="padding: 40px 0 80px;" id="clubs">
+  <div style="text-align: center; margin-bottom: 32px;">
+    <div class="section-number">§02 · Clubs, Cells &amp; Societies</div>
+    <h2 style="font-family: var(--f-display); font-size: 44px; color: var(--ink); margin-top: 12px; font-weight: 400;">Twenty-plus student bodies.</h2>
+  </div>
+
+  <div class="club-grid">
+    <div class="club-tile" id="nss"><div class="n">Club-01 · Est. 1985</div><div class="title">NSS · National Service Scheme</div><div class="desc">Community engagement, blood-donation drives, rural outreach programmes. Two-year mandatory-elective for interested students.</div></div>
+    <div class="club-tile"><div class="n">Club-02 · Est. 1998</div><div class="title">Street Cause · VCE Chapter</div><div class="desc">Registered non-profit, entirely student-run. Runs education programmes in nearby government schools.</div></div>
+    <div class="club-tile" id="ecell"><div class="n">Club-03 · Est. 2015</div><div class="title">Swayam · Entrepreneurship Cell</div><div class="desc">Startup incubation, pitch competitions, mentor connections. Portfolio includes three funded student ventures.</div></div>
+    <div class="club-tile"><div class="n">Club-04 · Est. 2019</div><div class="title">Gender Equity Cell</div><div class="desc">Workshops on gender sensitisation, safety audits, mentorship programmes for women in engineering.</div></div>
+    <div class="club-tile"><div class="n">Club-05 · Est. 1988</div><div class="title">IEEE Student Branch</div><div class="desc">Chapter of the international IEEE. Runs technical workshops, paper contests, and student-branch conferences.</div></div>
+    <div class="club-tile"><div class="n">Club-06 · Est. 1992</div><div class="title">CSI Student Chapter</div><div class="desc">Computer Society of India chapter. Coding contests, industry visits, tech talks. Strongest in CSE / IT.</div></div>
+    <div class="club-tile"><div class="n">Club-07 · Est. 2003</div><div class="title">SAE Baja Team</div><div class="desc">Undergraduate off-road vehicle team. Design, build, test, and race an all-terrain vehicle at the SAE Baja India event.</div></div>
+    <div class="club-tile"><div class="n">Club-08 · Est. 2010</div><div class="title">SAE Supra Team</div><div class="desc">Formula-style single-seater race car project. Full CAD-through-fabrication annual build cycle.</div></div>
+    <div class="club-tile"><div class="n">Club-09 · Est. 2005</div><div class="title">Robotics Club</div><div class="desc">Autonomous robot design and competition. Participates in Techkriti, ROBOCON, and inter-college contests.</div></div>
+    <div class="club-tile"><div class="n">Club-10 · Est. 2001</div><div class="title">Traditional Day Committee</div><div class="desc">The single most anticipated day on the VCE calendar. Elaborate saree-and-kurta procession, folk performances, and inter-year competitions.</div></div>
+    <div class="club-tile"><div class="n">Club-11 · Est. 2011</div><div class="title">Photography Club</div><div class="desc">Weekly photo walks, exhibition curation, event coverage. Annual publication in Kriti.</div></div>
+    <div class="club-tile"><div class="n">Club-12 · Est. 1996</div><div class="title">Debate Society</div><div class="desc">British Parliamentary and Asian Parliamentary format debating. Regional circuit participation.</div></div>
+    <div class="club-tile"><div class="n">Cell-01 · Est. 2009</div><div class="title">Anti-Ragging Cell</div><div class="desc">Statutory cell under UGC regulations. 24/7 helpline, complaint mechanism, monthly reporting.</div></div>
+    <div class="club-tile"><div class="n">Cell-02 · Est. 2016</div><div class="title">Innovation &amp; Startup Cell</div><div class="desc">Runs the annual startup expo, hosts Y-Combinator startup school locally.</div></div>
+    <div class="club-tile"><div class="n">Club-13 · Est. 2018</div><div class="title">Music Club · Rhythms</div><div class="desc">Instrumental and vocal group. Annual concert during Euphoria; guest performances at civic events.</div></div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="site-chrome.js"></script>
+</body></html>

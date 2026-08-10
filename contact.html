@@ -1,0 +1,172 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Contact — Vasavi College of Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="page-styles.css">
+<style>
+.contact-hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; margin-top: 32px; }
+.contact-hero .primary { padding: 40px; background: var(--ink); color: var(--paper); border-radius: var(--r-sm); display: flex; flex-direction: column; justify-content: space-between; }
+.contact-hero .primary .code { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--copper-warm); margin-bottom: 12px; text-transform: uppercase; }
+.contact-hero .primary h2 { font-family: var(--f-display); font-size: 40px; color: var(--paper); font-weight: 400; letter-spacing: -0.015em; line-height: 1.15; }
+.contact-hero .primary h2 .em { color: var(--copper-warm); font-style: italic; }
+.contact-hero .primary .addr { margin: 20px 0; font-family: var(--f-mono); font-size: 13px; line-height: 1.7; color: rgba(250,248,244,0.85); }
+.contact-hero .primary .addr .k { color: var(--copper-warm); display: block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 12px; margin-bottom: 4px; }
+.contact-hero .map { background: var(--paper-warm); border: 1px solid var(--fog); border-radius: var(--r-sm); position: relative; overflow: hidden; min-height: 340px; display: grid; place-items: center; }
+.contact-hero .map .placeholder { font-family: var(--f-mono); font-size: 12px; color: var(--slate); letter-spacing: 0.14em; text-align: center; padding: 20px; }
+.contact-hero .map::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 39px, rgba(21,34,56,0.06) 40px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 39px, rgba(21,34,56,0.06) 40px);
+}
+.contact-hero .map::after {
+  content: "VCE"; position: absolute; top: 40%; left: 42%;
+  width: 40px; height: 40px; border-radius: 50%; background: var(--copper); color: var(--paper);
+  display: grid; place-items: center; font-family: var(--f-display); font-size: 14px; font-weight: 500;
+  box-shadow: 0 4px 16px rgba(171,91,35,0.4);
+}
+@media (max-width: 960px) { .contact-hero { grid-template-columns: 1fr; } }
+
+.dept-contact-list { border-top: 1px solid var(--ink); margin-top: 24px; }
+.dep-row { display: grid; grid-template-columns: 200px 1fr 1fr 1fr; gap: 20px; padding: 18px 8px; border-bottom: 1px solid var(--fog); align-items: center; }
+.dep-row .k { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--copper); text-transform: uppercase; }
+.dep-row .n { font-size: 15px; color: var(--ink); font-weight: 500; }
+.dep-row .contact { font-family: var(--f-mono); font-size: 12px; color: var(--slate); }
+@media (max-width: 720px) { .dep-row { grid-template-columns: 1fr; gap: 4px; padding: 20px 8px; } .dep-row .k { color: var(--copper); } }
+</style></head>
+<body data-nav="contact">
+<div id="site-chrome"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> · <span class="cur">Contact</span></div>
+    <div class="code-band"><span>§ Contact</span><span class="sep">/</span><span>Address · Directory · Hours</span></div>
+    <h1>Get in <span class="em">touch.</span></h1>
+    <p class="lede">Every office at VCE has a real person answering. The general reception line, department direct lines, admissions team, T&amp;P office, and grievance channels — all listed below with actual response-time commitments.</p>
+
+    <div class="contact-hero">
+      <div class="primary">
+        <div>
+          <div class="code">Primary</div>
+          <h2>Vasavi College of<br><span class="em">Engineering.</span></h2>
+        </div>
+        <div class="addr">
+          <span class="k">Address</span>
+          9-5-81, Ibrahimbagh<br>Hyderabad — 500 031<br>Telangana, India
+          <span class="k">Phone · Reception</span>+91 40 2314 6079
+          <span class="k">Email</span>principal@vce.ac.in<br>info@vce.ac.in
+          <span class="k">Working Hours</span>Monday – Saturday · 9 AM – 5 PM<br>Closed on Sundays &amp; declared holidays
+        </div>
+      </div>
+      <div class="map"><div class="placeholder">Interactive map<br>Ibrahimbagh, Hyderabad</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="sitemap">
+  <div class="page-layout">
+    <aside class="page-nav">
+      <div class="heading">Directory</div>
+      <ul>
+        <li><a href="#offices" class="active" data-num="01">Key Offices</a></li>
+        <li><a href="#departments" data-num="02">Department HODs</a></li>
+        <li><a href="#admissions" data-num="03">Admissions Team</a></li>
+        <li><a href="#tp" data-num="04">T&amp;P Office</a></li>
+        <li><a href="#redressal" data-num="05">Grievance Cells</a></li>
+        <li><a href="#travel" data-num="06">Getting Here</a></li>
+        <li><a href="#sitemap" data-num="07">Sitemap</a></li>
+      </ul>
+    </aside>
+
+    <main class="page-content">
+      <section class="page-section" id="offices">
+        <div class="num">01 · Key Offices</div>
+        <h2>The people at the top.</h2>
+        <div class="grid-2" style="margin-top: 24px;">
+          <div class="person-card"><div class="avatar">PN</div><div class="info"><div class="name">Dr. P. Narayana Rao</div><div class="role">Principal</div><div class="bio">Overall institutional leadership.</div><div class="contacts"><span>+91 40 2314 6079 (ext. 101)</span><span>principal@vce.ac.in</span></div></div></div>
+          <div class="person-card"><div class="avatar">AS</div><div class="info"><div class="name">Dr. A. Sridhar</div><div class="role">Vice-Principal</div><div class="bio">Academic administration &amp; student affairs.</div><div class="contacts"><span>Ext. 102</span><span>vp@vce.ac.in</span></div></div></div>
+          <div class="person-card"><div class="avatar">MR</div><div class="info"><div class="name">Sri M. Ramchander</div><div class="role">Registrar</div><div class="bio">Administrative office &amp; compliance.</div><div class="contacts"><span>Ext. 103</span><span>registrar@vce.ac.in</span></div></div></div>
+          <div class="person-card"><div class="avatar">KV</div><div class="info"><div class="name">Dr. K. Vijayalakshmi</div><div class="role">Dean · Research</div><div class="bio">R&amp;D coordination · doctoral programme.</div><div class="contacts"><span>Ext. 105</span><span>rnd@vce.ac.in</span></div></div></div>
+          <div class="person-card"><div class="avatar">KS</div><div class="info"><div class="name">Prof. K. Sudheer</div><div class="role">Placement Officer</div><div class="bio">Training &amp; Placement Office.</div><div class="contacts"><span>Ext. 108</span><span>tpo@vce.ac.in</span></div></div></div>
+          <div class="person-card"><div class="avatar">CE</div><div class="info"><div class="name">Dr. C. Ershad</div><div class="role">Controller of Examinations</div><div class="bio">Examinations, results, revaluation.</div><div class="contacts"><span>Ext. 110</span><span>coe@vce.ac.in</span></div></div></div>
+        </div>
+      </section>
+
+      <section class="page-section" id="departments">
+        <div class="num">02 · Department HODs</div>
+        <h2>Direct department contacts.</h2>
+        <div class="dept-contact-list">
+          <div class="dep-row"><span class="k">CSE-01</span><span class="n">Dr. Ravi Krishna</span><span class="contact">Ext. 201</span><span class="contact">hod.cse@vce.ac.in</span></div>
+          <div class="dep-row"><span class="k">AIML-02</span><span class="n">Dr. Sunitha Menon</span><span class="contact">Ext. 202</span><span class="contact">hod.aiml@vce.ac.in</span></div>
+          <div class="dep-row"><span class="k">ECE-03</span><span class="n">Dr. Anitha Varma</span><span class="contact">Ext. 203</span><span class="contact">hod.ece@vce.ac.in</span></div>
+          <div class="dep-row"><span class="k">EEE-04</span><span class="n">Dr. Padma Sundar</span><span class="contact">Ext. 204</span><span class="contact">hod.eee@vce.ac.in</span></div>
+          <div class="dep-row"><span class="k">IT-05</span><span class="n">Dr. Ganesh Shastri</span><span class="contact">Ext. 205</span><span class="contact">hod.it@vce.ac.in</span></div>
+          <div class="dep-row"><span class="k">MECH-06</span><span class="n">Dr. Suryanarayan Pai</span><span class="contact">Ext. 206</span><span class="contact">hod.mech@vce.ac.in</span></div>
+          <div class="dep-row"><span class="k">CIVIL-07</span><span class="n">Dr. Bhaskar Reddy</span><span class="contact">Ext. 207</span><span class="contact">hod.civil@vce.ac.in</span></div>
+          <div class="dep-row"><span class="k">H&amp;S</span><span class="n">Dr. Latha Ramachandran</span><span class="contact">Ext. 208</span><span class="contact">hod.hs@vce.ac.in</span></div>
+        </div>
+      </section>
+
+      <section class="page-section" id="admissions">
+        <div class="num">03 · Admissions Team</div>
+        <h2>Ask about admissions.</h2>
+        <p class="lede">The admissions team responds to phone, email, and walk-in queries. Monday to Saturday, 10 AM to 4 PM. Response commitment: email within 24 hours during admission window (June-August).</p>
+        <dl class="dlist">
+          <dt>Admissions Officer</dt><dd>Sri T. Sundara Rao</dd>
+          <dt>Phone</dt><dd>+91 40 2314 6079 (ext. 120)</dd>
+          <dt>Email</dt><dd>admissions@vce.ac.in</dd>
+          <dt>Walk-in</dt><dd>Admin Block · Ground Floor</dd>
+          <dt>Hours (Regular)</dt><dd>Mon–Sat · 10 AM – 4 PM</dd>
+          <dt>Hours (Admission Window)</dt><dd>Mon–Sun · 9 AM – 6 PM · June – August</dd>
+        </dl>
+      </section>
+
+      <section class="page-section" id="tp">
+        <div class="num">04 · T&amp;P Office</div>
+        <h2>Training &amp; Placement.</h2>
+        <p class="lede">For recruiter invitations, campus recruitment scheduling, and internship coordination.</p>
+        <dl class="dlist">
+          <dt>Placement Officer</dt><dd>Prof. K. Sudheer</dd>
+          <dt>Phone</dt><dd>+91 40 2314 6079 (ext. 108)</dd>
+          <dt>Email</dt><dd>tpo@vce.ac.in</dd>
+          <dt>Response Time</dt><dd>Within 48 hours during academic year</dd>
+        </dl>
+      </section>
+
+      <section class="page-section" id="redressal">
+        <div class="num">05 · Grievance &amp; Redressal</div>
+        <h2>Confidential channels.</h2>
+        <div class="grid-2" style="margin-top: 20px;">
+          <div class="info-tile"><div class="code">Grievance Redressal Cell</div><div class="title" style="font-size: 18px;">General grievances</div><div class="desc">Academic, administrative, or interpersonal grievances. <b>grievance@vce.ac.in</b> · Ext. 130</div></div>
+          <div class="info-tile"><div class="code">Anti-Ragging Cell</div><div class="title" style="font-size: 18px;">24×7 helpline</div><div class="desc">UGC-mandated. <b>+91 90 0000 0000</b> · antiragging@vce.ac.in</div></div>
+          <div class="info-tile"><div class="code">Internal Complaints Committee</div><div class="title" style="font-size: 18px;">POSH Act</div><div class="desc">Sexual-harassment complaints, confidential. <b>icc@vce.ac.in</b></div></div>
+          <div class="info-tile"><div class="code">SC/ST Cell</div><div class="title" style="font-size: 18px;">Equity concerns</div><div class="desc">Reservation, scholarship, discrimination. <b>scstcell@vce.ac.in</b></div></div>
+          <div class="info-tile"><div class="code">Gender Equity Cell</div><div class="title" style="font-size: 18px;">Sensitisation &amp; support</div><div class="desc">Programmes, workshops, safety audits. <b>gec@vce.ac.in</b></div></div>
+          <div class="info-tile"><div class="code">IQAC</div><div class="title" style="font-size: 18px;">Quality feedback</div><div class="desc">Institutional quality feedback &amp; suggestions. <b>iqac@vce.ac.in</b></div></div>
+        </div>
+      </section>
+
+      <section class="page-section" id="travel">
+        <div class="num">06 · Getting Here</div>
+        <h2>How to reach VCE.</h2>
+        <dl class="dlist">
+          <dt>By Air</dt><dd>Rajiv Gandhi International Airport · 30 km · pre-paid taxi or Ola/Uber</dd>
+          <dt>By Rail</dt><dd>Hyderabad Deccan (Nampally) · 12 km · Secunderabad Junction · 18 km</dd>
+          <dt>By Bus (TSRTC)</dt><dd>Routes 5K and 66G · direct to campus main gate</dd>
+          <dt>By Metro</dt><dd>Nearest: Ameerpet (7 km) · Golconda station under construction (2027)</dd>
+          <dt>Parking</dt><dd>Visitor parking · 40 slots · main gate access</dd>
+        </dl>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="site-chrome.js"></script>
+<script>
+const links = document.querySelectorAll('.page-nav a[href^="#"]');
+const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id))), { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => io.observe(s));
+links.forEach(l => l.addEventListener('click', e => { const t = document.querySelector(l.getAttribute('href')); if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }); }}));
+</script>
+</body></html>

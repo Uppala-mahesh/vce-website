@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title id="pageTitle">Department — Vasavi College of Engineering</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="page-styles.css" />
+
+<style>
+/* Dept-specific overrides */
+.page-hero { padding: 64px 0 48px; }
+.page-hero .nbn-badge {
+  display: inline-flex; gap: 6px; align-items: center;
+  padding: 4px 10px;
+  background: var(--paper-warm);
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+  color: var(--green);
+  font-size: 11px;
+}
+.page-hero .nbn-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  right: -80px; top: -80px;
+  width: 480px; height: 480px;
+  background-image: url("assets/circuit-board.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0.08;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Cross-dept switcher */
+.dept-switcher {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--fog);
+  background: var(--paper-warm);
+}
+.dept-switcher .wrap { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.dept-switcher .lbl { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); margin-right: 12px; }
+.dept-switcher a {
+  padding: 6px 12px;
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  background: var(--paper);
+  transition: all .2s;
+}
+.dept-switcher a:hover { border-color: var(--ink); color: var(--ink); }
+.dept-switcher a.active { border-color: var(--copper); background: var(--ink); color: var(--paper); }
+
+/* Faculty grid */
+.faculty-controls { display: flex; gap: 16px; margin-bottom: 24px; align-items: center; flex-wrap: wrap; }
+.faculty-controls input {
+  border: 1px solid var(--fog);
+  padding: 10px 14px;
+  font-family: var(--f-body);
+  font-size: 14px;
+  min-width: 220px;
+  background: var(--paper);
+  border-radius: var(--r-sm);
+}
+.faculty-controls input:focus { outline: none; border-color: var(--teal); }
+.faculty-controls .pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.faculty-controls .pills button {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+  color: var(--slate);
+  background: var(--paper);
+  transition: all .2s;
+}
+.faculty-controls .pills button.active { border-color: var(--ink); color: var(--ink); background: var(--paper-warm); }
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--fog);
+  border: 1px solid var(--fog);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+.fac-card {
+  background: var(--paper);
+  padding: 20px;
+  transition: background .2s;
+  cursor: pointer;
+}
+.fac-card:hover { background: var(--paper-warm); }
+.fac-card .row1 { display: flex; gap: 14px; align-items: flex-start; }
+.fac-card .av {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--ink-wash);
+  color: var(--copper-warm);
+  display: grid; place-items: center;
+  font-family: var(--f-display);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.fac-card .name { font-family: var(--f-display); font-size: 17px; color: var(--ink); line-height: 1.2; margin-bottom: 4px; }
+.fac-card .desig { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper); }
+.fac-card .specialty { font-size: 13px; color: var(--slate); margin-top: 12px; line-height: 1.4; }
+
+/* Labs */
+.lab-card .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.lab-card .tag {
+  font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em;
+  padding: 4px 8px; background: var(--paper-warm); color: var(--ink);
+  border: 1px solid var(--fog); border-radius: var(--r-sm);
+}
+
+/* Syllabus (reused pattern) */
+.syl-selectors { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 24px; }
+.syl-selectors select {
+  border: 1px solid var(--fog); padding: 10px 32px 10px 14px;
+  font-family: var(--f-body); font-size: 14px; background: var(--paper); border-radius: var(--r-sm); appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%235B6472' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat; background-position: right 10px center;
+}
+.syl-list { border-top: 1px solid var(--fog); }
+.syl-item {
+  display: grid; grid-template-columns: 100px 80px 1fr auto; gap: 24px;
+  padding: 16px 8px; border-bottom: 1px solid var(--fog); align-items: center;
+  transition: background .15s;
+}
+.syl-item:hover { background: var(--paper-warm); }
+.syl-item .code { font-family: var(--f-mono); font-size: 12px; color: var(--copper); letter-spacing: 0.08em; }
+.syl-item .cred { font-family: var(--f-mono); font-size: 12px; color: var(--slate); }
+.syl-item .name { font-family: var(--f-body); font-size: 14px; color: var(--ink); font-weight: 500; }
+.syl-item .dl {
+  font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--teal); padding: 6px 12px; border: 1px solid var(--fog); border-radius: var(--r-sm); transition: all .2s;
+}
+.syl-item .dl:hover { border-color: var(--teal); background: var(--teal); color: var(--paper); }
+
+@media (max-width: 960px) {
+  .faculty-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .faculty-grid { grid-template-columns: 1fr; }
+  .syl-item { grid-template-columns: 1fr auto; gap: 8px; }
+  .syl-item .code, .syl-item .cred { display: none; }
+}
+</style>
+</head>
+<body data-nav="departments">
+
+<div id="site-chrome"></div>
+
+<!-- Dept switcher band -->
+<div class="dept-switcher">
+  <div class="wrap">
+    <span class="lbl">Departments</span>
+    <a href="department.html?d=cse" data-d="cse">CSE</a>
+    <a href="department.html?d=aiml" data-d="aiml">AI &amp; ML</a>
+    <a href="department.html?d=ece" data-d="ece">ECE</a>
+    <a href="department.html?d=eee" data-d="eee">EEE</a>
+    <a href="department.html?d=it" data-d="it">IT</a>
+    <a href="department.html?d=mech" data-d="mech">MECH</a>
+    <a href="department.html?d=civil" data-d="civil">CIVIL</a>
+    <a href="department.html?d=hs" data-d="hs">H&amp;S</a>
+  </div>
+</div>
+
+<!-- Masthead -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb">
+      <a href="index.html">Home</a>
+      <span class="sep">·</span>
+      <a href="#">Departments</a>
+      <span class="sep">·</span>
+      <span class="cur" id="crumbCur">Department</span>
+    </div>
+
+    <div class="code-band" id="codeBand"></div>
+
+    <h1 id="deptH1"></h1>
+    <p class="lede" id="deptLede"></p>
+
+    <div class="hero-facts" id="deptFacts"></div>
+  </div>
+</section>
+
+<!-- Sticky nav + content -->
+<div class="wrap">
+  <div class="page-layout">
+
+    <aside class="page-nav">
+      <div class="heading">On this page</div>
+      <ul>
+        <li><a href="#overview" class="active" data-num="01">Overview</a></li>
+        <li><a href="#faculty" data-num="02">Faculty</a></li>
+        <li><a href="#labs" data-num="03">Labs &amp; R&amp;D</a></li>
+        <li><a href="#syllabus" data-num="04">Syllabus</a></li>
+        <li><a href="#outcomes" data-num="05">Outcomes</a></li>
+        <li><a href="#downloads" data-num="06">Downloads</a></li>
+      </ul>
+      <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--fog);" id="hodBox"></div>
+    </aside>
+
+    <main class="page-content">
+
+      <section class="page-section" id="overview">
+        <div class="num">01 · Overview</div>
+        <h2 id="overH2">A department, described.</h2>
+        <div id="overBody"></div>
+      </section>
+
+      <section class="page-section" id="faculty">
+        <div class="num">02 · Faculty</div>
+        <h2 id="facH2">Faculty roster.</h2>
+        <p class="lede">Searchable by name; filterable by rank. Full profiles available on the Faculty directory.</p>
+
+        <div class="faculty-controls">
+          <input type="text" placeholder="Search faculty by name…" id="facSearch">
+          <div class="pills" id="facPills"></div>
+        </div>
+
+        <div class="faculty-grid" id="facGrid"></div>
+        <div style="margin-top: 20px; text-align: right;">
+          <a href="#" style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper);">View full faculty directory →</a>
+        </div>
+      </section>
+
+      <section class="page-section" id="labs">
+        <div class="num">03 · Labs &amp; R&amp;D</div>
+        <h2 id="labH2">Laboratories &amp; facilities.</h2>
+        <p class="lede">Every undergraduate spends roughly 50% of their programme in lab hours. Postgraduate research runs through the same facilities out of hours.</p>
+        <div class="grid-2" id="labGrid"></div>
+      </section>
+
+      <section class="page-section" id="syllabus">
+        <div class="num">04 · Syllabus</div>
+        <h2>R-24 · Current regulation.</h2>
+        <p class="lede">The R-24 curriculum applies to the 2024 intake onwards. R-20 continues for earlier batches until they graduate.</p>
+
+        <div class="syl-selectors">
+          <select><option>R-24 (2024 onward)</option><option>R-20 (2020–2023)</option></select>
+          <select><option>Semester I</option><option>Semester II</option><option>Semester III</option><option>Semester IV</option><option>Semester V</option><option>Semester VI</option><option>Semester VII</option><option>Semester VIII</option></select>
+        </div>
+
+        <div class="syl-list" id="sylList"></div>
+      </section>
+
+      <section class="page-section" id="outcomes">
+        <div class="num">05 · Outcomes</div>
+        <h2>PO / PSO attainment.</h2>
+        <p class="lede">Programme Outcomes and Programme Specific Outcomes are measured every academic cycle. Latest attainment shown.</p>
+
+        <table class="d-table">
+          <thead><tr><th>Code</th><th>Outcome</th><th>Target</th><th>2024–25</th><th>2023–24</th><th>Attainment</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">PO1</td><td>Engineering knowledge</td><td class="mono">2.5</td><td class="mono">2.72</td><td class="mono">2.68</td><td><span class="bar" style="width: 92px;"></span><span class="mono" style="color: var(--copper);">2.72</span></td></tr>
+            <tr><td class="mono">PO2</td><td>Problem analysis</td><td class="mono">2.5</td><td class="mono">2.65</td><td class="mono">2.61</td><td><span class="bar" style="width: 85px;"></span><span class="mono" style="color: var(--copper);">2.65</span></td></tr>
+            <tr><td class="mono">PO3</td><td>Design / development of solutions</td><td class="mono">2.5</td><td class="mono">2.58</td><td class="mono">2.54</td><td><span class="bar" style="width: 78px;"></span><span class="mono" style="color: var(--copper);">2.58</span></td></tr>
+            <tr><td class="mono">PO4</td><td>Investigations of complex problems</td><td class="mono">2.5</td><td class="mono">2.51</td><td class="mono">2.49</td><td><span class="bar" style="width: 71px;"></span><span class="mono" style="color: var(--copper);">2.51</span></td></tr>
+            <tr><td class="mono">PO5</td><td>Modern tool usage</td><td class="mono">2.5</td><td class="mono">2.78</td><td class="mono">2.72</td><td><span class="bar" style="width: 98px;"></span><span class="mono" style="color: var(--copper);">2.78</span></td></tr>
+            <tr><td class="mono">PSO1</td><td>Apply engineering fundamentals</td><td class="mono">2.5</td><td class="mono">2.74</td><td class="mono">2.69</td><td><span class="bar" style="width: 94px;"></span><span class="mono" style="color: var(--copper);">2.74</span></td></tr>
+            <tr><td class="mono">PSO2</td><td>Design and build systems</td><td class="mono">2.5</td><td class="mono">2.62</td><td class="mono">2.58</td><td><span class="bar" style="width: 82px;"></span><span class="mono" style="color: var(--copper);">2.62</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="page-section" id="downloads">
+        <div class="num">06 · Downloads</div>
+        <h2>Official documents.</h2>
+        <div class="syl-list" style="border-top: 1px solid var(--fog);">
+          <div class="syl-item"><span class="code">DOC-01</span><span class="cred">PDF</span><span class="name" id="dl1">Department Vision, Mission, PEOs (2024)</span><a href="#" class="dl">Open ↗</a></div>
+          <div class="syl-item"><span class="code">DOC-02</span><span class="cred">PDF</span><span class="name">R-24 Complete Course Structure &amp; Credit Distribution</span><a href="#" class="dl">Open ↗</a></div>
+          <div class="syl-item"><span class="code">DOC-03</span><span class="cred">PDF</span><span class="name">Faculty Profiles — Full Roster (2025–26)</span><a href="#" class="dl">Open ↗</a></div>
+          <div class="syl-item"><span class="code">DOC-04</span><span class="cred">PDF</span><span class="name" id="dl4">Placement Report — Class of 2024–25</span><a href="#" class="dl">Open ↗</a></div>
+          <div class="syl-item"><span class="code">DOC-05</span><span class="cred">PDF</span><span class="name">NBA Self-Assessment Report (2023 cycle)</span><a href="#" class="dl">Open ↗</a></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="departments-data.js"></script>
+<script src="site-chrome.js"></script>
+<script>
+(function () {
+  const params = new URLSearchParams(location.search);
+  const key = (params.get('d') || 'cse').toLowerCase();
+  const d = window.VCE_DEPTS[key] || window.VCE_DEPTS.cse;
+
+  // Title
+  document.getElementById('pageTitle').textContent = d.name.replace(/&amp;/g,'&') + ' — Vasavi College of Engineering';
+  document.getElementById('crumbCur').innerHTML = d.name;
+
+  // Code band
+  document.getElementById('codeBand').innerHTML = `
+    <span>${d.code}</span><span class="sep">/</span>
+    <span>Established ${d.founded}</span><span class="sep">/</span>
+    <span>${d.intake}</span>
+    ${d.accredited.includes('NBA') ? '<span class="nbn-badge"><span class="dot"></span>' + d.accredited + '</span>' : '<span class="sep">/</span><span>' + d.accredited + '</span>'}
+  `;
+
+  // H1
+  document.getElementById('deptH1').innerHTML = `${d.prefix} <span class="em">${d.tagline}</span>`;
+
+  // Lede (uses first overview paragraph, shortened)
+  const lede = d.overview[0].split('.').slice(0, 2).join('.') + '.';
+  document.getElementById('deptLede').innerHTML = lede;
+
+  // Facts
+  const placeStr = typeof d.facts.place === 'number' ? `<span class="em">${d.facts.place}</span>%` : d.facts.place;
+  const placeLbl = typeof d.facts.place === 'number' ? '2025 Placement' : 'Foundation Dept.';
+  document.getElementById('deptFacts').innerHTML = `
+    <div class="fact"><div class="n">${d.facts.faculty}</div><div class="l">Faculty Members</div></div>
+    <div class="fact"><div class="n">${d.facts.labs}</div><div class="l">Dedicated Labs</div></div>
+    <div class="fact"><div class="n">${placeStr}</div><div class="l">${placeLbl}</div></div>
+    <div class="fact"><div class="n">${d.facts.reg}</div><div class="l">Current Regulation</div></div>
+  `;
+
+  // HOD box
+  document.getElementById('hodBox').innerHTML = `
+    <div class="heading" style="border: none; padding: 0; margin-bottom: 12px;">Head of Dept.</div>
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--ink-wash); color: var(--copper-warm); display: grid; place-items: center; font-family: var(--f-display); font-size: 15px;">${d.hod.initials}</div>
+      <div style="line-height: 1.3;">
+        <div style="font-family: var(--f-display); font-size: 15px; color: var(--ink);">${d.hod.name}</div>
+        <div style="font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em; color: var(--slate); text-transform: uppercase; margin-top: 2px;">${d.hod.role}</div>
+      </div>
+    </div>
+  `;
+
+  // Overview
+  document.getElementById('overH2').textContent = key === 'cse' ? "A department that grew with the discipline." : `The ${d.name.replace(/&amp;/g,'&')} department.`;
+  document.getElementById('overBody').innerHTML =
+    `<p class="lede">${d.overview[0]}</p>` +
+    d.overview.slice(1).map(p => `<p>${p}</p>`).join('');
+
+  // Faculty
+  const rankCounts = { prof: 0, assoc: 0, asst: 0 };
+  d.faculty.forEach(f => {
+    if (f.d.toLowerCase().startsWith('professor')) rankCounts.prof++;
+    else if (f.d.toLowerCase().startsWith('associate')) rankCounts.assoc++;
+    else rankCounts.asst++;
+  });
+  const facH2 = key === 'cse' ? "Ninety-two teachers. Thirty-seven years."
+    : `${d.facts.faculty} teachers. ${new Date().getFullYear() - d.founded} years.`;
+  document.getElementById('facH2').textContent = facH2;
+
+  document.getElementById('facPills').innerHTML = `
+    <button class="active" data-r="all">All (${d.facts.faculty})</button>
+    <button data-r="prof">Professor (${rankCounts.prof}+)</button>
+    <button data-r="assoc">Associate (${rankCounts.assoc}+)</button>
+    <button data-r="asst">Assistant (${rankCounts.asst}+)</button>
+  `;
+  document.getElementById('facGrid').innerHTML = d.faculty.map(f => `
+    <div class="fac-card">
+      <div class="row1">
+        <div class="av">${f.i}</div>
+        <div><div class="name">${f.n}</div><div class="desig">${f.d}</div></div>
+      </div>
+      <div class="specialty">${f.s}</div>
+    </div>
+  `).join('');
+
+  document.querySelectorAll('#facPills button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#facPills button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+    });
+  });
+
+  // Labs
+  document.getElementById('labH2').textContent = `${d.labs.length} lab${d.labs.length === 1 ? '' : 's'}. Continuous through both semesters.`;
+  document.getElementById('labGrid').innerHTML = d.labs.map(l => `
+    <div class="info-tile lab-card">
+      <div class="code">${l.c}</div>
+      <div class="title">${l.n}</div>
+      <div class="desc">${l.e}</div>
+      <div class="tags">${l.t.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+
+  // Syllabus (generic list — same for all depts as sample)
+  const sylPrefix = { cse: 'CS', aiml: 'AI', ece: 'EC', eee: 'EE', it: 'IT', mech: 'ME', civil: 'CE', hs: 'MA' }[key] || 'XX';
+  const courses = [
+    { code: `22${sylPrefix}301`, cr: 4, name: 'Core Course I' },
+    { code: `22${sylPrefix}302`, cr: 4, name: 'Core Course II' },
+    { code: `22${sylPrefix}303`, cr: 4, name: 'Core Course III' },
+    { code: `22${sylPrefix}304`, cr: 3, name: 'Mathematics for Engineers' },
+    { code: `22${sylPrefix}305`, cr: 3, name: 'Programme Elective I' },
+    { code: `22${sylPrefix}306`, cr: 2, name: 'Core Laboratory I' },
+    { code: `22${sylPrefix}307`, cr: 2, name: 'Core Laboratory II' },
+    { code: '22MC308', cr: 0, name: 'Constitution of India (mandatory)' }
+  ];
+  const courseNames = {
+    cse: ['Data Structures &amp; Algorithms', 'OOP with Java', 'Computer Organisation', 'Discrete Mathematics', 'Database Management Systems', 'Data Structures Laboratory', 'OOP with Java Laboratory'],
+    aiml: ['Machine Learning Foundations', 'Statistical Methods', 'Deep Learning I', 'Linear Algebra for ML', 'Data Engineering Elective', 'ML Laboratory', 'DL Laboratory'],
+    ece: ['Signals &amp; Systems', 'Analog Electronics', 'Digital Signal Processing', 'Engineering Mathematics III', 'VLSI Elective', 'Analog Lab', 'DSP Lab'],
+    eee: ['Electrical Machines I', 'Power Systems Analysis', 'Power Electronics', 'Mathematics for EEE', 'Renewable Systems Elective', 'Machines Lab', 'Power Electronics Lab'],
+    it: ['Web Systems Architecture', 'Networks &amp; Protocols', 'Cloud Fundamentals', 'Applied Discrete Math', 'Security Elective', 'Networks Lab', 'Cloud Lab'],
+    mech: ['Thermodynamics', 'Machine Design I', 'Manufacturing Processes', 'Engineering Mathematics III', 'Automotive Elective', 'Thermal Lab', 'Design Lab'],
+    civil: ['Structural Analysis I', 'Concrete Technology', 'Geotechnical Engineering', 'Engineering Mathematics III', 'Environmental Elective', 'Concrete Lab', 'Geotech Lab'],
+    hs: ['Engineering Mathematics I', 'Applied Physics', 'Engineering Chemistry', 'Communication Skills', 'Environmental Studies', 'Physics Lab', 'Chemistry Lab']
+  };
+  const names = courseNames[key] || courseNames.cse;
+  courses.forEach((c, i) => { if (i < 7) c.name = names[i]; });
+
+  document.getElementById('sylList').innerHTML = courses.map(c => `
+    <div class="syl-item">
+      <span class="code">${c.code}</span>
+      <span class="cred">${c.cr} CR</span>
+      <span class="name">${c.name}</span>
+      <a href="#" class="dl">PDF ↓</a>
+    </div>
+  `).join('');
+
+  // Downloads
+  document.getElementById('dl1').innerHTML = `${d.name} Vision, Mission, PEOs (2024)`;
+  document.getElementById('dl4').innerHTML = `Placement Report — ${d.code.split('-').slice(1, 2).join('')} Class of 2024–25`;
+
+  // Highlight active in dept switcher
+  document.querySelectorAll('.dept-switcher [data-d]').forEach(a => {
+    if (a.dataset.d === key) a.classList.add('active');
+  });
+
+  // Sticky in-page nav scroll-spy
+  const links = document.querySelectorAll('.page-nav a[href^="#"]');
+  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const spyIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => s && spyIO.observe(s));
+
+  links.forEach(l => l.addEventListener('click', (e) => {
+    const id = l.getAttribute('href');
+    const target = document.querySelector(id);
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }); }
+  }));
+
+  // Faculty search
+  document.getElementById('facSearch').addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll('#facGrid .fac-card').forEach(card => {
+      const txt = card.textContent.toLowerCase();
+      card.style.display = txt.includes(q) ? '' : 'none';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

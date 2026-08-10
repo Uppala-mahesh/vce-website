@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Student &amp; Faculty Portal — Vasavi College of Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="page-styles.css">
+<style>
+/* Portal hero — dark, personal surface (per design system: authenticated pages use dark) */
+.portal-hero { background: var(--ink); color: var(--paper); padding: 80px 0 64px; border-bottom: 1px solid var(--ink-wash); position: relative; overflow: hidden; }
+.portal-hero::before { content: ""; position: absolute; right: 5%; top: 20%; width: 400px; height: 400px; background-image: radial-gradient(circle, rgba(199,122,68,0.15) 0%, transparent 70%); }
+.portal-hero .wrap { position: relative; z-index: 1; }
+.portal-hero .code { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--copper-warm); text-transform: uppercase; margin-bottom: 20px; }
+.portal-hero h1 { font-family: var(--f-display); font-size: clamp(44px, 6vw, 72px); color: var(--paper); font-weight: 300; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; max-width: 20ch; font-variation-settings: "opsz" 144; }
+.portal-hero h1 .em { color: var(--copper-warm); font-style: italic; }
+.portal-hero .lede { color: rgba(250,248,244,0.75); max-width: 60ch; font-size: 17px; line-height: 1.6; font-weight: 300; }
+
+/* Login card */
+.login-block { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+.login-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  padding: 32px; border-radius: var(--r-sm); backdrop-filter: blur(8px);
+  transition: all .3s var(--ease);
+}
+.login-card:hover { border-color: var(--copper); background: rgba(171,91,35,0.05); }
+.login-card .who { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--copper-warm); text-transform: uppercase; margin-bottom: 12px; }
+.login-card h3 { font-family: var(--f-display); font-size: 28px; color: var(--paper); font-weight: 400; margin-bottom: 20px; line-height: 1.15; }
+.login-card .field { margin-bottom: 16px; }
+.login-card label { display: block; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; color: rgba(250,248,244,0.5); text-transform: uppercase; margin-bottom: 6px; }
+.login-card input {
+  width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r-sm); color: var(--paper); font-family: var(--f-mono); font-size: 14px;
+  transition: border-color .2s;
+}
+.login-card input:focus { outline: none; border-color: var(--copper-warm); }
+.login-card input::placeholder { color: rgba(250,248,244,0.3); }
+.login-card .go { width: 100%; padding: 14px; background: var(--copper); color: var(--paper); font-family: var(--f-body); font-size: 14px; font-weight: 500; border: none; border-radius: var(--r-sm); cursor: pointer; margin-top: 8px; transition: background .2s; }
+.login-card .go:hover { background: var(--copper-warm); }
+.login-card .foot { display: flex; justify-content: space-between; margin-top: 16px; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; }
+.login-card .foot a { color: rgba(250,248,244,0.6); text-transform: uppercase; }
+.login-card .foot a:hover { color: var(--copper-warm); }
+@media (max-width: 720px) { .login-block { grid-template-columns: 1fr; } }
+
+/* Services grid section (light background) */
+.services-block { background: var(--paper); padding: 80px 0; }
+.svc-head { text-align: center; margin-bottom: 48px; }
+.svc-head .num { display: inline-flex; }
+.svc-head h2 { font-family: var(--f-display); font-size: 44px; color: var(--ink); margin-top: 12px; font-weight: 400; letter-spacing: -0.015em; }
+.svc-head .lede { color: var(--slate); font-size: 17px; margin-top: 12px; max-width: 60ch; margin-left: auto; margin-right: auto; }
+
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.svc-tile {
+  padding: 28px; border: 1px solid var(--fog); border-radius: var(--r-sm); background: var(--paper);
+  transition: all .3s var(--ease); cursor: pointer; position: relative;
+}
+.svc-tile:hover { border-color: var(--copper); transform: translateY(-3px); box-shadow: var(--e2); }
+.svc-tile .icon {
+  width: 44px; height: 44px; border: 1px solid var(--copper); border-radius: 50%;
+  display: grid; place-items: center; color: var(--copper); font-family: var(--f-display); font-size: 18px; font-weight: 500;
+  margin-bottom: 20px;
+}
+.svc-tile .cat { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--slate); text-transform: uppercase; margin-bottom: 8px; }
+.svc-tile h3 { font-family: var(--f-display); font-size: 22px; color: var(--ink); font-weight: 400; margin-bottom: 8px; line-height: 1.2; }
+.svc-tile p { font-size: 13.5px; color: var(--slate); line-height: 1.5; margin: 0 0 16px; }
+.svc-tile .go { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); }
+.svc-tile:hover .go { color: var(--ink); }
+@media (max-width: 960px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr; } }
+
+/* Help block */
+.help-block { background: var(--paper-warm); padding: 64px 0; border-top: 1px solid var(--fog); }
+.help-block .wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; }
+.help-block h2 { font-family: var(--f-display); font-size: 32px; color: var(--ink); font-weight: 400; line-height: 1.15; }
+.help-block h2 .em { color: var(--copper); font-style: italic; }
+.help-block .ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.help-block .way { padding: 20px; background: var(--paper); border: 1px solid var(--fog); border-radius: var(--r-sm); }
+.help-block .way .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--copper); text-transform: uppercase; margin-bottom: 6px; }
+.help-block .way .v { font-family: var(--f-mono); font-size: 13px; color: var(--ink); }
+@media (max-width: 720px) { .help-block .wrap { grid-template-columns: 1fr; } .help-block .ways { grid-template-columns: 1fr; } }
+</style></head>
+<body data-nav="home">
+<div id="site-chrome"></div>
+
+<section class="portal-hero">
+  <div class="wrap">
+    <div class="code">§ Student &amp; Faculty Portal · Secure Session Required</div>
+    <h1>Sign in to your <span class="em">account.</span></h1>
+    <p class="lede">Every VCE student and staff member gets a single sign-on account tied to their institutional email. One login unlocks the LMS, results, library reservations, fee payments, and email — all listed below.</p>
+
+    <div class="login-block">
+      <div class="login-card">
+        <div class="who">Students</div>
+        <h3>Sign in with roll number.</h3>
+        <div class="field"><label>Roll Number</label><input type="text" placeholder="e.g. 1602-24-733-001"></div>
+        <div class="field"><label>Password</label><input type="password" placeholder="••••••••"></div>
+        <button class="go">Sign in →</button>
+        <div class="foot"><a href="#">Forgot password?</a><a href="#">Get help</a></div>
+      </div>
+      <div class="login-card">
+        <div class="who">Faculty &amp; Staff</div>
+        <h3>Sign in with institutional email.</h3>
+        <div class="field"><label>Email</label><input type="email" placeholder="you@vce.ac.in"></div>
+        <div class="field"><label>Password</label><input type="password" placeholder="••••••••"></div>
+        <button class="go">Sign in →</button>
+        <div class="foot"><a href="#">Reset password</a><a href="#">SSO with Office 365</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-block">
+  <div class="wrap">
+    <div class="svc-head">
+      <span class="section-number">§01 · Services</span>
+      <h2>Everything, one login.</h2>
+      <p class="lede">Twelve services under a single sign-on. If you're logged in already, click any tile to jump straight in.</p>
+    </div>
+
+    <div class="svc-grid">
+      <a href="exams.html" class="svc-tile"><div class="icon">R</div><div class="cat">Academic</div><h3>Examination Results</h3><p>CIE, SEE, and revaluation results. Semester-wise, subject-wise. Downloadable transcripts.</p><div class="go">Open →</div></a>
+
+      <a href="exams.html?cat=timetable" class="svc-tile"><div class="icon">T</div><div class="cat">Academic</div><h3>Timetables &amp; Circulars</h3><p>Class schedules, examination schedules, and academic notices. Filterable by semester.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile" id="lms"><div class="icon">M</div><div class="cat">Learning</div><h3>Moodle · LMS</h3><p>Course materials, assignments, quizzes. Every enrolled course has an active Moodle instance.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile" id="o365"><div class="icon">O</div><div class="cat">Productivity</div><h3>Office 365</h3><p>Institutional email, Teams, OneDrive, Word/Excel/PowerPoint online. 1 TB personal storage.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile"><div class="icon">L</div><div class="cat">Library</div><h3>Library Catalogue (KOHA)</h3><p>Search the print collection, place holds, view your current issues, renew online.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile"><div class="icon">D</div><div class="cat">Library</div><h3>E-Journal Databases</h3><p>IEEE Xplore, ACM DL, SpringerLink, Elsevier ScienceDirect — off-campus access via SSO.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile"><div class="icon">₹</div><div class="cat">Finance</div><h3>Online Fee Payment</h3><p>Tuition, hostel, mess, examination fees. UPI, netbanking, card. Downloadable receipts.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile"><div class="icon">A</div><div class="cat">Records</div><h3>Attendance Portal</h3><p>Real-time attendance percentages across all enrolled subjects. Drilldown by month.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile" id="turnitin"><div class="icon">P</div><div class="cat">Academic</div><h3>Turnitin</h3><p>Plagiarism check for capstone projects, term papers, and doctoral theses. Faculty-assigned classes.</p><div class="go">Open →</div></a>
+
+      <a href="placements.html" class="svc-tile"><div class="icon">T</div><div class="cat">Placements</div><h3>T&amp;P Portal</h3><p>Placement registration, company shortlists, offer tracking, alumni referrals.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile"><div class="icon">F</div><div class="cat">Faculty</div><h3>Faculty Dashboard</h3><p>Course allocation, attendance marking, mark entry, CIE grading, PO/PSO tracking.</p><div class="go">Open →</div></a>
+
+      <a href="#" class="svc-tile"><div class="icon">H</div><div class="cat">Wellbeing</div><h3>Counselling &amp; Wellness</h3><p>Confidential appointment booking with the counselling office. Anonymous helpline number.</p><div class="go">Open →</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="help-block">
+  <div class="wrap">
+    <div>
+      <h2>Trouble signing <span class="em">in?</span></h2>
+      <p style="color: var(--slate); margin-top: 12px; font-size: 15px; line-height: 1.6;">The IT help desk resolves most login issues within an hour during business hours. For account provisioning issues, contact the Registrar's office.</p>
+    </div>
+    <div class="ways">
+      <div class="way"><div class="k">Help Desk</div><div class="v">helpdesk@vce.ac.in<br>Ext. 140</div></div>
+      <div class="way"><div class="k">Hours</div><div class="v">Mon–Sat<br>9 AM – 6 PM</div></div>
+      <div class="way"><div class="k">On-Site</div><div class="v">Admin Block<br>Ground Floor</div></div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="site-chrome.js"></script>
+</body></html>

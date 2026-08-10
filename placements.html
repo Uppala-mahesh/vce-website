@@ -1,0 +1,224 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Placements — Vasavi College of Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="page-styles.css">
+<style>
+.mega-stat { padding: 40px; border: 1px solid var(--fog); border-radius: var(--r-sm); background: var(--paper); display: flex; flex-direction: column; }
+.mega-stat.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.mega-stat .code { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); margin-bottom: 12px; }
+.mega-stat.dark .code { color: var(--copper-warm); }
+.mega-stat .big { font-family: var(--f-display); font-size: 88px; line-height: 1; color: var(--ink); letter-spacing: -0.03em; margin: auto 0 20px; font-weight: 300; font-variation-settings: "opsz" 144; }
+.mega-stat.dark .big { color: var(--paper); }
+.mega-stat .big .em { color: var(--copper); font-style: italic; }
+.mega-stat.dark .big .em { color: var(--copper-warm); }
+.mega-stat .big .unit { font-family: var(--f-mono); font-size: 24px; color: var(--slate); vertical-align: super; margin-left: 4px; }
+.mega-stat.dark .big .unit { color: rgba(250,248,244,0.5); }
+.mega-stat .lbl { font-family: var(--f-display); font-size: 20px; color: var(--ink); margin-bottom: 4px; }
+.mega-stat.dark .lbl { color: var(--paper); }
+.mega-stat .sub { font-size: 13px; color: var(--slate); }
+.mega-stat.dark .sub { color: rgba(250,248,244,0.6); }
+
+.year-tbl { width: 100%; border-collapse: collapse; }
+.year-tbl th { text-align: left; padding: 12px; background: var(--paper-warm); font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); font-weight: 500; border: 1px solid var(--fog); }
+.year-tbl td { padding: 14px 12px; border: 1px solid var(--fog); font-size: 14px; }
+.year-tbl td.mono { font-family: var(--f-mono); color: var(--ink); font-weight: 500; }
+.year-tbl .bar-row { display: flex; align-items: center; gap: 8px; }
+.year-tbl .bar { height: 8px; background: var(--copper); border-radius: 1px; }
+
+.timeline-h { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; margin-top: 24px; }
+.timeline-h .step { padding: 16px; background: var(--paper); border: 1px solid var(--fog); border-radius: var(--r-sm); }
+.timeline-h .step .m { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); margin-bottom: 8px; }
+.timeline-h .step .t { font-family: var(--f-display); font-size: 15px; color: var(--ink); line-height: 1.2; margin-bottom: 4px; }
+.timeline-h .step .d { font-size: 11px; color: var(--slate); line-height: 1.4; }
+@media (max-width: 960px) { .timeline-h { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .timeline-h { grid-template-columns: repeat(2, 1fr); } }
+</style></head>
+<body data-nav="placements">
+<div id="site-chrome"></div>
+
+<section class="page-hero dark">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> · <span class="cur">Placements</span></div>
+    <div class="code-band"><span>§ Placements</span><span class="sep">/</span><span>2025–26 Recruitment Cycle</span></div>
+    <h1>Where our graduates <span class="em">land.</span></h1>
+    <p class="lede">The Training &amp; Placement Office runs an active on-campus recruitment cycle from July through April every year. Numbers below are for the class of 2025 — verifiable against the department-wise placement reports.</p>
+
+    <div class="hero-facts">
+      <div class="fact"><div class="n"><span class="em">92</span>%</div><div class="l">Placement Rate · Eligible</div></div>
+      <div class="fact"><div class="n">₹82L</div><div class="l">Highest Package</div></div>
+      <div class="fact"><div class="n">₹6.4L</div><div class="l">Average Package</div></div>
+      <div class="fact"><div class="n">150+</div><div class="l">Visiting Recruiters</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="page-layout">
+    <aside class="page-nav">
+      <div class="heading">On this page</div>
+      <ul>
+        <li><a href="#stats" class="active" data-num="01">Yearly Statistics</a></li>
+        <li><a href="#dept" data-num="02">Department Breakdown</a></li>
+        <li><a href="#process" data-num="03">Placement Process</a></li>
+        <li><a href="#prep" data-num="04">Preparation Programme</a></li>
+        <li><a href="#internships" data-num="05">Internships</a></li>
+        <li><a href="#alumni" data-num="06">Alumni Network</a></li>
+        <li><a href="#invite" data-num="07">Invite VCE</a></li>
+        <li><a href="#reports" data-num="08">Full Reports</a></li>
+      </ul>
+      <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--fog);">
+        <div class="heading" style="border: none; padding: 0; margin-bottom: 12px;">T&amp;P Office</div>
+        <div style="font-size: 13px; color: var(--slate); line-height: 1.5;">Prof. K. Sudheer<br>Placement Officer<br><span style="font-family: var(--f-mono); font-size: 11px;">tpo@vce.ac.in</span></div>
+      </div>
+    </aside>
+
+    <main class="page-content">
+      <section class="page-section" id="stats">
+        <div class="num">01 · Yearly Statistics</div>
+        <h2>Five years of placement data.</h2>
+        <p class="lede">Placement rate has held above 88% for the last five academic years. Median package has grown from ₹4.6L (2021) to ₹6.4L (2025), tracking industry-wide compensation growth.</p>
+
+        <div class="grid-3" style="margin-top: 24px; margin-bottom: 32px;">
+          <div class="mega-stat dark">
+            <div class="code">Class of 2025</div>
+            <div class="big"><span class="em">92</span><span class="unit">%</span></div>
+            <div class="lbl">Placement Rate</div>
+            <div class="sub">Eligible &amp; opted-in students</div>
+          </div>
+          <div class="mega-stat">
+            <div class="code">Highest 2025</div>
+            <div class="big">₹<span class="em">82</span><span class="unit">LPA</span></div>
+            <div class="lbl">Top Offer</div>
+            <div class="sub">Software Engineer · US-based firm</div>
+          </div>
+          <div class="mega-stat">
+            <div class="code">Median 2025</div>
+            <div class="big">₹<span class="em">6.4</span><span class="unit">LPA</span></div>
+            <div class="lbl">Median Package</div>
+            <div class="sub">Across all UG programmes</div>
+          </div>
+        </div>
+
+        <h3>Historic performance</h3>
+        <table class="year-tbl">
+          <thead><tr><th>Year</th><th>Eligible</th><th>Placed</th><th>Rate</th><th>Median (LPA)</th><th>Highest (LPA)</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">2024–25</td><td class="mono">720</td><td class="mono">660</td><td><div class="bar-row"><div class="bar" style="width: 92px;"></div><span class="mono">92%</span></div></td><td class="mono">₹6.4</td><td class="mono">₹82</td></tr>
+            <tr><td class="mono">2023–24</td><td class="mono">705</td><td class="mono">631</td><td><div class="bar-row"><div class="bar" style="width: 89px;"></div><span class="mono">89.5%</span></div></td><td class="mono">₹5.9</td><td class="mono">₹64</td></tr>
+            <tr><td class="mono">2022–23</td><td class="mono">690</td><td class="mono">628</td><td><div class="bar-row"><div class="bar" style="width: 91px;"></div><span class="mono">91%</span></div></td><td class="mono">₹5.4</td><td class="mono">₹58</td></tr>
+            <tr><td class="mono">2021–22</td><td class="mono">675</td><td class="mono">601</td><td><div class="bar-row"><div class="bar" style="width: 89px;"></div><span class="mono">89%</span></div></td><td class="mono">₹4.8</td><td class="mono">₹42</td></tr>
+            <tr><td class="mono">2020–21</td><td class="mono">660</td><td class="mono">581</td><td><div class="bar-row"><div class="bar" style="width: 88px;"></div><span class="mono">88%</span></div></td><td class="mono">₹4.6</td><td class="mono">₹38</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="page-section" id="dept">
+        <div class="num">02 · Department Breakdown</div>
+        <h2>Placement rate by programme.</h2>
+        <table class="year-tbl">
+          <thead><tr><th>Department</th><th>Eligible</th><th>Placed</th><th>Rate</th><th>Median</th><th>Highest</th></tr></thead>
+          <tbody>
+            <tr><td>Computer Science &amp; Engineering</td><td class="mono">175</td><td class="mono">172</td><td><div class="bar-row"><div class="bar" style="width: 98px;"></div><span class="mono">98%</span></div></td><td class="mono">₹8.2L</td><td class="mono">₹82L</td></tr>
+            <tr><td>CSE — AI &amp; Machine Learning</td><td class="mono">58</td><td class="mono">56</td><td><div class="bar-row"><div class="bar" style="width: 96px;"></div><span class="mono">96%</span></div></td><td class="mono">₹9.5L</td><td class="mono">₹52L</td></tr>
+            <tr><td>Information Technology</td><td class="mono">115</td><td class="mono">108</td><td><div class="bar-row"><div class="bar" style="width: 94px;"></div><span class="mono">94%</span></div></td><td class="mono">₹7.2L</td><td class="mono">₹48L</td></tr>
+            <tr><td>Electronics &amp; Communication</td><td class="mono">115</td><td class="mono">102</td><td><div class="bar-row"><div class="bar" style="width: 89px;"></div><span class="mono">89%</span></div></td><td class="mono">₹5.8L</td><td class="mono">₹36L</td></tr>
+            <tr><td>Electrical &amp; Electronics</td><td class="mono">55</td><td class="mono">48</td><td><div class="bar-row"><div class="bar" style="width: 87px;"></div><span class="mono">87%</span></div></td><td class="mono">₹5.4L</td><td class="mono">₹24L</td></tr>
+            <tr><td>Mechanical Engineering</td><td class="mono">115</td><td class="mono">94</td><td><div class="bar-row"><div class="bar" style="width: 82px;"></div><span class="mono">82%</span></div></td><td class="mono">₹4.8L</td><td class="mono">₹18L</td></tr>
+            <tr><td>Civil Engineering</td><td class="mono">55</td><td class="mono">43</td><td><div class="bar-row"><div class="bar" style="width: 78px;"></div><span class="mono">78%</span></div></td><td class="mono">₹4.2L</td><td class="mono">₹14L</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="page-section" id="process">
+        <div class="num">03 · Placement Process</div>
+        <h2>How the cycle runs.</h2>
+        <p class="lede">The T&amp;P Office runs a structured recruitment cycle from July through April. Companies register in advance, get shortlists based on eligibility criteria, and conduct on-campus or hybrid rounds.</p>
+
+        <div class="timeline-h">
+          <div class="step"><div class="m">Jul</div><div class="t">Registration</div><div class="d">T&amp;P registers eligible students · profiles ready</div></div>
+          <div class="step"><div class="m">Aug</div><div class="t">Recruiter Outreach</div><div class="d">Company invitations · JD collection · slot booking</div></div>
+          <div class="step"><div class="m">Sep–Oct</div><div class="t">Pre-Placement Talks</div><div class="d">Company presentations · Q&amp;A · shortlists</div></div>
+          <div class="step"><div class="m">Nov–Feb</div><div class="t">Interviews</div><div class="d">Written / online tests · technical + HR rounds</div></div>
+          <div class="step"><div class="m">Feb–Mar</div><div class="t">Offers</div><div class="d">Offer letters issued · student acceptance</div></div>
+          <div class="step"><div class="m">Apr</div><div class="t">Cycle Closes</div><div class="d">Final placement data compiled · reports published</div></div>
+        </div>
+      </section>
+
+      <section class="page-section" id="prep">
+        <div class="num">04 · Preparation Programme</div>
+        <h2>Placement readiness begins in Semester V.</h2>
+        <p class="lede">The T&amp;P Office runs a structured preparation programme through Semesters V, VI, and VII — aptitude tests, mock interviews, coding contests, and one-on-one profile reviews.</p>
+        <div class="grid-2" style="margin-top: 20px;">
+          <div class="info-tile"><div class="code">Sem V</div><div class="title">Foundations</div><div class="desc">Aptitude workshops · Introduction to placement tests · Resume writing · Company profiling.</div></div>
+          <div class="info-tile"><div class="code">Sem VI</div><div class="title">Skill Building</div><div class="desc">Coding contests (weekly) · Group discussions · Mock technical interviews · Domain deep-dives.</div></div>
+          <div class="info-tile"><div class="code">Sem VII</div><div class="title">Placement-Ready</div><div class="desc">Full mock recruitment cycles · Company-specific prep · One-on-one interview coaching.</div></div>
+          <div class="info-tile"><div class="code">Sem VIII</div><div class="title">Off-Campus Support</div><div class="desc">Post-cycle support for students not placed on-campus · alumni referrals · off-campus openings.</div></div>
+        </div>
+      </section>
+
+      <section class="page-section" id="internships">
+        <div class="num">05 · Internships</div>
+        <h2>Mandatory summer internship.</h2>
+        <p class="lede">Under R-24, every B.E. student must complete a summer internship between Semester VI and VII — minimum 6 weeks, ideally 8. Placements Office maintains a company database and helps place students.</p>
+        <dl class="dlist">
+          <dt>Duration</dt><dd>6–8 weeks · Summer between Sem VI &amp; VII</dd>
+          <dt>Credits</dt><dd>2 credits under R-24 curriculum</dd>
+          <dt>Evaluation</dt><dd>Company certificate + on-campus presentation</dd>
+          <dt>Support</dt><dd>Company database · introduction letters · stipend negotiation</dd>
+        </dl>
+      </section>
+
+      <section class="page-section" id="alumni">
+        <div class="num">06 · Alumni Network</div>
+        <h2>Forty years of graduates.</h2>
+        <p class="lede">VCE has an active alumni network with over 15,000 graduates across four decades. The alumni association runs referrals, mentorship programmes, and industry-visit hosting for current students.</p>
+        <a href="alumni.html" class="btn btn-primary">Alumni network →</a>
+      </section>
+
+      <section class="page-section" id="invite">
+        <div class="num">07 · Invite VCE for Recruitment</div>
+        <h2>For recruiters.</h2>
+        <p class="lede">Companies interested in recruiting from VCE can register through the T&amp;P Office. We support standard on-campus, hybrid (online tests + on-campus interviews), and fully-remote recruitment models.</p>
+        <div class="callout">
+          <div class="l">Get in touch</div>
+          <p>Email <b>tpo@vce.ac.in</b> or call <b>+91 40 2314 6079 (extn. 108)</b>. The T&amp;P team responds within 48 hours during the academic year.</p>
+        </div>
+      </section>
+
+      <section class="page-section" id="reports">
+        <div class="num">08 · Full Reports</div>
+        <h2>Year-wise placement reports.</h2>
+        <div class="grid-2" style="margin-top: 20px;">
+          <div class="info-tile"><div class="code">PLC-2025</div><div class="title" style="font-size: 18px;">Placement Report 2024–25</div><div class="desc">Full report · company-wise offer counts · department break-up. <a href="#" style="color: var(--copper);">PDF ↓</a></div></div>
+          <div class="info-tile"><div class="code">PLC-2024</div><div class="title" style="font-size: 18px;">Placement Report 2023–24</div><div class="desc">Class of 2024 · full data. <a href="#" style="color: var(--copper);">PDF ↓</a></div></div>
+          <div class="info-tile"><div class="code">PLC-2023</div><div class="title" style="font-size: 18px;">Placement Report 2022–23</div><div class="desc">Class of 2023 · full data. <a href="#" style="color: var(--copper);">PDF ↓</a></div></div>
+          <div class="info-tile"><div class="code">PLC-2022</div><div class="title" style="font-size: 18px;">Placement Report 2021–22</div><div class="desc">Class of 2022 · full data. <a href="#" style="color: var(--copper);">PDF ↓</a></div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="cta-banner">
+  <div class="wrap">
+    <div>
+      <div class="code">See who's hiring</div>
+      <h2>150+ recruiters, <span class="em">named.</span></h2>
+      <p>Full recruiter roster grouped by sector — technology, finance, consulting, core engineering, product companies, and government PSUs.</p>
+    </div>
+    <div class="btns">
+      <a href="recruiters.html" class="btn btn-primary">Full Recruiter List →</a>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="site-chrome.js"></script>
+<script>
+const links = document.querySelectorAll('.page-nav a[href^="#"]');
+const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id))), { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => io.observe(s));
+links.forEach(l => l.addEventListener('click', e => { const t = document.querySelector(l.getAttribute('href')); if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }); }}));
+</script>
+</body></html>

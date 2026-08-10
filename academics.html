@@ -1,0 +1,226 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Academics — Vasavi College of Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="page-styles.css">
+<style>
+.prog-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.prog-table tr { border-bottom: 1px solid var(--fog); }
+.prog-table tr:first-child { border-top: 1px solid var(--ink); }
+.prog-table td { padding: 20px 8px; vertical-align: top; }
+.prog-table .no { font-family: var(--f-mono); font-size: 11px; color: var(--copper); letter-spacing: 0.14em; width: 60px; }
+.prog-table .n { font-family: var(--f-display); font-size: 22px; color: var(--ink); line-height: 1.2; }
+.prog-table .n .sub { display: block; font-family: var(--f-mono); font-size: 11px; color: var(--slate); margin-top: 4px; font-weight: normal; letter-spacing: 0.08em; text-transform: uppercase; }
+.prog-table .seat { font-family: var(--f-mono); font-size: 14px; color: var(--ink); text-align: right; padding-right: 24px; }
+.prog-table .link { text-align: right; }
+.prog-table .link a { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); border: 1px solid var(--fog); padding: 6px 12px; border-radius: var(--r-sm); }
+
+.reg-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+.reg-card { padding: 32px; border: 1px solid var(--fog); border-radius: var(--r-sm); background: var(--paper); position: relative; }
+.reg-card.active { border-color: var(--copper); background: var(--paper-warm); }
+.reg-card .r { font-family: var(--f-display); font-size: 48px; color: var(--ink); letter-spacing: -0.03em; font-weight: 300; line-height: 1; }
+.reg-card .r .em { color: var(--copper); font-style: italic; }
+.reg-card .lbl { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); margin: 4px 0 16px; }
+.reg-card ul { padding-left: 20px; margin: 0; }
+.reg-card li { font-size: 14px; color: var(--charcoal); line-height: 1.6; margin-bottom: 6px; }
+.reg-card .tag { position: absolute; top: 24px; right: 24px; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); padding: 4px 8px; border: 1px solid var(--copper); border-radius: var(--r-sm); }
+@media (max-width: 720px) { .reg-compare { grid-template-columns: 1fr; } }
+</style></head>
+<body data-nav="academics">
+<div id="site-chrome"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> · <span class="cur">Academics</span></div>
+    <div class="code-band"><span>§ Academics</span><span class="sep">/</span><span>Programmes · Regulations · Curriculum</span></div>
+    <h1>Seven UG, four PG, <span class="em">one autonomy.</span></h1>
+    <p class="lede">Under UGC autonomy, VCE runs its own curriculum, its own exams, and its own results. The Academic Council approves; the Board of Studies of each department drafts. Here's what's on offer, how it's regulated, and how to find any given syllabus.</p>
+
+    <div class="hero-facts">
+      <div class="fact"><div class="n">7</div><div class="l">UG Programmes</div></div>
+      <div class="fact"><div class="n">4</div><div class="l">PG Programmes</div></div>
+      <div class="fact"><div class="n">780 <span style="font-family: var(--f-mono); font-size: 20px; color: var(--slate);">+ 48</span></div><div class="l">Total Sanctioned Intake</div></div>
+      <div class="fact"><div class="n"><span class="em">R-24</span></div><div class="l">Current Regulation</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="page-layout">
+    <aside class="page-nav">
+      <div class="heading">On this page</div>
+      <ul>
+        <li><a href="#programmes" class="active" data-num="01">Programmes Offered</a></li>
+        <li><a href="#regulations" data-num="02">R-24 &amp; R-20 Regulations</a></li>
+        <li><a href="#syllabus" data-num="03">Syllabus</a></li>
+        <li><a href="#vac" data-num="04">Value-Added Courses</a></li>
+        <li><a href="#electives" data-num="05">Open Electives</a></li>
+        <li><a href="#calendar" data-num="06">Academic Calendar</a></li>
+        <li><a href="#exams" data-num="07">Examinations</a></li>
+      </ul>
+    </aside>
+
+    <main class="page-content">
+      <section class="page-section" id="programmes">
+        <div class="num">01 · Programmes Offered</div>
+        <h2>Undergraduate.</h2>
+        <p class="lede">Seven B.E. programmes with a total sanctioned intake of 780. Admission via TS EAMCET counselling. Four-year duration, semester system, R-24 regulation for the current 2024 intake onwards.</p>
+
+        <table class="prog-table">
+          <tr><td class="no">UG-01</td><td class="n">Computer Science &amp; Engineering<span class="sub">Est. 1988 · NBA Accredited</span></td><td class="seat">180</td><td class="link"><a href="department.html?d=cse">Open →</a></td></tr>
+          <tr><td class="no">UG-02</td><td class="n">CSE — AI &amp; Machine Learning<span class="sub">Est. 2020 · NBA Cycle 1</span></td><td class="seat">60</td><td class="link"><a href="department.html?d=aiml">Open →</a></td></tr>
+          <tr><td class="no">UG-03</td><td class="n">Electronics &amp; Communication<span class="sub">Est. 1981 · NBA Accredited</span></td><td class="seat">120</td><td class="link"><a href="department.html?d=ece">Open →</a></td></tr>
+          <tr><td class="no">UG-04</td><td class="n">Electrical &amp; Electronics<span class="sub">Est. 1981 · NBA Accredited</span></td><td class="seat">60</td><td class="link"><a href="department.html?d=eee">Open →</a></td></tr>
+          <tr><td class="no">UG-05</td><td class="n">Information Technology<span class="sub">Est. 2001 · NBA Accredited</span></td><td class="seat">120</td><td class="link"><a href="department.html?d=it">Open →</a></td></tr>
+          <tr><td class="no">UG-06</td><td class="n">Mechanical Engineering<span class="sub">Est. 1981 · NBA Accredited</span></td><td class="seat">120</td><td class="link"><a href="department.html?d=mech">Open →</a></td></tr>
+          <tr><td class="no">UG-07</td><td class="n">Civil Engineering<span class="sub">Est. 1981 · NBA Accredited</span></td><td class="seat">60</td><td class="link"><a href="department.html?d=civil">Open →</a></td></tr>
+        </table>
+
+        <h3 style="margin-top: 48px;">Postgraduate.</h3>
+        <p>Four postgraduate schemes with a total sanctioned intake of 48. Admission through GATE for M.E./M.Tech.; own entrance for MBA.</p>
+
+        <table class="prog-table">
+          <tr><td class="no">PG-01</td><td class="n">M.E. — Embedded Systems &amp; VLSI<span class="sub">Under ECE · GATE admission</span></td><td class="seat">12</td><td class="link"><a href="department.html?d=ece">Open →</a></td></tr>
+          <tr><td class="no">PG-02</td><td class="n">M.E. — Advanced Design &amp; Manufacturing<span class="sub">Under MECH · GATE admission</span></td><td class="seat">12</td><td class="link"><a href="department.html?d=mech">Open →</a></td></tr>
+          <tr><td class="no">PG-03</td><td class="n">M.E. — Power Systems &amp; Power Electronics<span class="sub">Under EEE · GATE admission</span></td><td class="seat">12</td><td class="link"><a href="department.html?d=eee">Open →</a></td></tr>
+          <tr><td class="no">PG-04</td><td class="n">M.Tech. — Computer Science &amp; Engineering<span class="sub">Under CSE · GATE admission</span></td><td class="seat">12</td><td class="link"><a href="department.html?d=cse">Open →</a></td></tr>
+        </table>
+
+        <div class="callout" style="margin-top: 32px;">
+          <div class="l">Also on Campus</div>
+          <p><b>MBA · School of Management Studies</b> — two-year AICTE-approved MBA, 60 seats. Independently administered but shares placement infrastructure. Est. 2008.</p>
+        </div>
+      </section>
+
+      <section class="page-section" id="regulations">
+        <div class="num">02 · Regulations</div>
+        <h2>R-24 replaces R-20.</h2>
+        <p class="lede">A regulation is the operating agreement between the college and a student cohort — governing credits, evaluation, promotion, and graduation. Under autonomy, VCE issues its own. Two regulations are currently in force.</p>
+
+        <div class="reg-compare">
+          <div class="reg-card active">
+            <div class="tag">Current</div>
+            <div class="r">R-<span class="em">24</span></div>
+            <div class="lbl">Applies to 2024 intake onwards</div>
+            <ul>
+              <li>160 credits over 8 semesters (B.E.)</li>
+              <li>Continuous Internal Evaluation + Semester End Exam split 40/60</li>
+              <li>Choice-based Credit System (CBCS) with open electives</li>
+              <li>Mandatory Value-Added Course requirement (min. 4 credits)</li>
+              <li>Internship compulsory between Sem VI &amp; VII (2 credits)</li>
+              <li>Capstone project — Sem VII &amp; VIII (10 credits)</li>
+              <li>Minimum attendance: 75% per subject</li>
+            </ul>
+          </div>
+          <div class="reg-card">
+            <div class="tag" style="color: var(--slate); border-color: var(--slate);">Legacy</div>
+            <div class="r">R-<span class="em">20</span></div>
+            <div class="lbl">2020–2023 intakes · until they graduate</div>
+            <ul>
+              <li>160 credits over 8 semesters (B.E.)</li>
+              <li>CIE + SEE split 30/70</li>
+              <li>CBCS framework introduced</li>
+              <li>Value-added courses optional</li>
+              <li>Internship optional (elective)</li>
+              <li>Capstone project — Sem VIII only (8 credits)</li>
+              <li>Minimum attendance: 75% per subject</li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="margin-top: 32px;">
+          <a href="#" style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper);">R-24 Full Regulation Document ↗</a>
+          &nbsp;·&nbsp;
+          <a href="#" style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper);">R-20 Full Regulation Document ↗</a>
+        </p>
+      </section>
+
+      <section class="page-section" id="syllabus">
+        <div class="num">03 · Syllabus</div>
+        <h2>Full curriculum, by department.</h2>
+        <p class="lede">Each department maintains its own syllabus under the current R-24 regulation. Batch-specific syllabus documents (R-24 or R-20) are available on the department page.</p>
+
+        <div class="grid-4" style="margin-top: 24px;">
+          <a href="department.html?d=cse#syllabus" class="info-tile" style="text-decoration: none;"><div class="code">CSE</div><div class="title" style="font-size: 18px;">Computer Science</div><div class="desc" style="color: var(--copper);">R-24 Syllabus →</div></a>
+          <a href="department.html?d=aiml#syllabus" class="info-tile" style="text-decoration: none;"><div class="code">AIML</div><div class="title" style="font-size: 18px;">AI &amp; ML</div><div class="desc" style="color: var(--copper);">R-24 Syllabus →</div></a>
+          <a href="department.html?d=ece#syllabus" class="info-tile" style="text-decoration: none;"><div class="code">ECE</div><div class="title" style="font-size: 18px;">Electronics &amp; Comm.</div><div class="desc" style="color: var(--copper);">R-24 Syllabus →</div></a>
+          <a href="department.html?d=eee#syllabus" class="info-tile" style="text-decoration: none;"><div class="code">EEE</div><div class="title" style="font-size: 18px;">Electrical</div><div class="desc" style="color: var(--copper);">R-24 Syllabus →</div></a>
+          <a href="department.html?d=it#syllabus" class="info-tile" style="text-decoration: none;"><div class="code">IT</div><div class="title" style="font-size: 18px;">Information Tech.</div><div class="desc" style="color: var(--copper);">R-24 Syllabus →</div></a>
+          <a href="department.html?d=mech#syllabus" class="info-tile" style="text-decoration: none;"><div class="code">MECH</div><div class="title" style="font-size: 18px;">Mechanical</div><div class="desc" style="color: var(--copper);">R-24 Syllabus →</div></a>
+          <a href="department.html?d=civil#syllabus" class="info-tile" style="text-decoration: none;"><div class="code">CIVIL</div><div class="title" style="font-size: 18px;">Civil</div><div class="desc" style="color: var(--copper);">R-24 Syllabus →</div></a>
+          <a href="department.html?d=hs#syllabus" class="info-tile" style="text-decoration: none;"><div class="code">H&amp;S</div><div class="title" style="font-size: 18px;">Sciences &amp; Humanities</div><div class="desc" style="color: var(--copper);">R-24 Syllabus →</div></a>
+        </div>
+      </section>
+
+      <section class="page-section" id="vac">
+        <div class="num">04 · Value-Added Courses</div>
+        <h2>Twelve courses. Four credits mandatory.</h2>
+        <p class="lede">Value-Added Courses (VACs) sit outside the departmental syllabus — short, focused, industry-driven modules. Under R-24, students must accumulate at least 4 VAC credits before graduation.</p>
+
+        <table class="d-table" style="margin-top: 20px;">
+          <thead><tr><th style="width: 80px;">Code</th><th>Course</th><th style="width: 100px;">Credits</th><th style="width: 120px;">Semester</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">VAC-01</td><td>Python for Data Analysis</td><td class="mono">2</td><td class="mono">III / IV</td></tr>
+            <tr><td class="mono">VAC-02</td><td>Cloud Fundamentals — AWS</td><td class="mono">2</td><td class="mono">III / IV</td></tr>
+            <tr><td class="mono">VAC-03</td><td>Introduction to Cybersecurity</td><td class="mono">2</td><td class="mono">V / VI</td></tr>
+            <tr><td class="mono">VAC-04</td><td>Full-stack Web Development</td><td class="mono">3</td><td class="mono">V / VI</td></tr>
+            <tr><td class="mono">VAC-05</td><td>Digital Marketing Foundations</td><td class="mono">2</td><td class="mono">V / VI</td></tr>
+            <tr><td class="mono">VAC-06</td><td>Introduction to IoT</td><td class="mono">2</td><td class="mono">V / VI</td></tr>
+            <tr><td class="mono">VAC-07</td><td>Business Analytics</td><td class="mono">2</td><td class="mono">VI / VII</td></tr>
+            <tr><td class="mono">VAC-08</td><td>Machine Learning Applied</td><td class="mono">3</td><td class="mono">VI / VII</td></tr>
+            <tr><td class="mono">VAC-09</td><td>DevOps &amp; Site Reliability</td><td class="mono">2</td><td class="mono">VI / VII</td></tr>
+            <tr><td class="mono">VAC-10</td><td>Financial Literacy for Engineers</td><td class="mono">1</td><td class="mono">VII / VIII</td></tr>
+            <tr><td class="mono">VAC-11</td><td>Technical Writing &amp; Documentation</td><td class="mono">1</td><td class="mono">VII / VIII</td></tr>
+            <tr><td class="mono">VAC-12</td><td>Entrepreneurship &amp; Startup Fundamentals</td><td class="mono">2</td><td class="mono">VII / VIII</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="page-section" id="electives">
+        <div class="num">05 · Open Electives</div>
+        <h2>Cross-departmental electives.</h2>
+        <p class="lede">Open Electives are subjects offered by one department that students of other departments can register for. They broaden the graduate profile — a CSE student can take a course in Structural Design; a Mechanical student can take Machine Learning Foundations.</p>
+        <p>Open Electives are offered in Semesters V, VI, and VII under R-24. Total credit requirement across the programme: 9 credits.</p>
+        <a href="exams.html?cat=registration" style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper);">Open Elective registration schedule ↗</a>
+      </section>
+
+      <section class="page-section" id="calendar">
+        <div class="num">06 · Academic Calendar</div>
+        <h2>Almanac.</h2>
+        <p class="lede">The full academic calendar — semester dates, mid-term windows, examination schedules, and holiday list — is maintained on the Almanac page.</p>
+        <a href="almanac.html" class="btn btn-primary">Open Academic Almanac →</a>
+      </section>
+
+      <section class="page-section" id="exams">
+        <div class="num">07 · Examinations</div>
+        <h2>Controller of Examinations.</h2>
+        <p class="lede">All examination-related notices — CIE and SEE results, timetables, revaluation windows, and circulars — are consolidated in a single filterable hub.</p>
+        <a href="exams.html" class="btn btn-primary">Open Examinations Hub →</a>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="cta-banner">
+  <div class="wrap">
+    <div>
+      <div class="code">Apply</div>
+      <h2>Admissions <span class="em">2026–27</span> are open.</h2>
+      <p>B.E. counselling through TS EAMCET · M.E. through GATE · MBA through TS ICET. Read the full admission process, seat matrix, and fee structure.</p>
+    </div>
+    <div class="btns">
+      <a href="admissions.html" class="btn btn-primary">Admissions →</a>
+      <a href="contact.html" class="btn btn-ghost">Contact Office</a>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="site-chrome.js"></script>
+<script>
+const links = document.querySelectorAll('.page-nav a[href^="#"]');
+const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id))), { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => io.observe(s));
+links.forEach(l => l.addEventListener('click', e => { const t = document.querySelector(l.getAttribute('href')); if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }); }}));
+</script>
+</body></html>
